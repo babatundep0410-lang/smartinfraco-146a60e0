@@ -1,10 +1,12 @@
 import { Network, Globe, Zap, ArrowRight, Radio, Cable } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
-import SectionHeading from "@/components/shared/SectionHeading";
+import CtaBand from "@/components/shared/CtaBand";
+import Eyebrow from "@/components/ui-system/Eyebrow";
+import GridBackdrop from "@/components/ui-system/GridBackdrop";
+import GlassCard from "@/components/ui-system/GlassCard";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
 import connectivityHero from "@/assets/connectivity-hero.jpg";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const services = [
   {
@@ -45,93 +47,125 @@ const services = [
   },
 ];
 
+const highlights: [string, string][] = [
+  ["Carrier Neutral", "Unrestricted interconnect between carriers and customers for better value, lower latency, and higher resilience"],
+  ["Tier III Design Standard", "Designed with uptime tier III design standards with resilience across all critical infrastructures"],
+  ["N+1 Cooling", "Independent dual power distribution, N+1 cooling infrastructure, state-of-art fire detection and suppression"],
+  ["Earthquake-Resistant", "1-metre elevated earthquake-resistant building design, built for different seismic zones"],
+  ["Industry-Leading Reliability", "Redundant systems (N+1 and 2(N+1)) with the latest technologies for industry-leading reliability"],
+  ["All Telecom Carriers", "Including all telecommunication carriers in Ghana, ISPs, direct connection to all 5 undersea cables"],
+];
+
 export default function ConnectivityPage() {
   return (
     <Layout>
       <PageHero
+        eyebrow="Connectivity"
         title="Network Solutions"
         description="Highly reliable, always available network solutions and support for your critical applications and end-users."
         bgImage={connectivityHero}
       />
 
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <SectionHeading
-            label="Our Network"
-            title="Boost Your Network Performance with Ease"
-            description="From national backbone to last-mile access, Smart Infraco provides the complete connectivity stack for government, enterprise, and service provider networks."
-          />
-          <div className="space-y-8">
-            {services.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="grid lg:grid-cols-3 gap-6 p-8 border border-border bg-card"
-              >
-                <div className="lg:col-span-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-primary/10 flex items-center justify-center">
-                      <s.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground">{s.title}</h3>
+      {/* Capabilities — sticky-left, scrolling-right */}
+      <section className="relative section-padding bg-background overflow-hidden">
+        <GridBackdrop variant="dots" className="opacity-40" />
+        <div className="relative container-wide">
+          <div className="grid lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32">
+                <Reveal>
+                  <Eyebrow>Our network</Eyebrow>
+                  <h2 className="font-display mt-5 text-display-lg text-foreground">
+                    Boost your network performance — with ease.
+                  </h2>
+                  <p className="mt-6 text-base text-muted-foreground leading-relaxed">
+                    From national backbone to last-mile access, Smart Infraco provides the complete connectivity stack for government, enterprise and service-provider networks.
+                  </p>
+                  <div className="mt-8 grid grid-cols-3 gap-4">
+                    {[
+                      { v: "100", u: "Gbps DIA" },
+                      { v: "1,010", u: "km Backbone" },
+                      { v: "5", u: "Subsea Cables" },
+                    ].map((m) => (
+                      <div key={m.u}>
+                        <div className="font-display text-2xl font-medium text-secondary tabular-nums">{m.v}</div>
+                        <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground mt-1">{m.u}</div>
+                      </div>
+                    ))}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{s.description}</p>
-                </div>
-                <div className="flex flex-wrap gap-2 content-start">
-                  {s.features.map((f) => (
-                    <span key={f} className="text-xs font-medium px-3 py-1.5 bg-primary/10 text-primary">
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                </Reveal>
+              </div>
+            </div>
+
+            <RevealGroup className="lg:col-span-8 space-y-5">
+              {services.map((s, i) => (
+                <RevealItem key={s.title}>
+                  <div className="group relative grid lg:grid-cols-12 gap-6 p-7 lg:p-8 border border-hairline bg-card overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--shadow-card)]">
+                    <span className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-secondary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="lg:col-span-7">
+                      <div className="flex items-center gap-4">
+                        <div className="w-11 h-11 glass flex items-center justify-center">
+                          <s.icon className="w-5 h-5 text-secondary" />
+                        </div>
+                        <div className="font-display text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                          0{i + 1}
+                        </div>
+                      </div>
+                      <h3 className="font-display mt-5 text-2xl text-foreground">{s.title}</h3>
+                      <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.description}</p>
+                    </div>
+                    <div className="lg:col-span-5 flex flex-wrap gap-2 content-start">
+                      {s.features.map((f) => (
+                        <span key={f} className="text-[11px] font-medium px-3 py-1.5 border border-hairline text-foreground/85 hover:border-secondary/40 transition-colors">
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
           </div>
         </div>
       </section>
 
       {/* Network highlights */}
-      <section className="section-padding bg-dark">
-        <div className="container-wide">
-          <SectionHeading label="Network Highlights" title="Smart Infraco Has a Broad Customer Base" light />
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              ["Carrier Neutral", "Unrestricted interconnect between carriers and customers for better value, lower latency, and higher resilience"],
-              ["Tier III Design Standard", "Designed with uptime tier III design standards with resilience across all critical infrastructures"],
-              ["N+1 Cooling", "Independent dual power distribution, N+1 cooling infrastructure, state-of-art fire detection and suppression"],
-              ["Earthquake-Resistant", "1-metre elevated earthquake-resistant building design, built for different seismic zones"],
-              ["Industry-Leading Reliability", "Redundant systems (N+1 and 2(N+1)) with the latest technologies for industry-leading reliability"],
-              ["All Telecom Carriers", "Including all telecommunication carriers in Ghana, ISPs, direct connection to all 5 undersea cables"],
-            ].map(([label, desc], i) => (
-              <div key={label} className="flex gap-4 items-start">
-                <div className="w-2 h-2 bg-secondary mt-2 shrink-0" />
-                <div>
-                  <div className="text-sm font-semibold text-dark-foreground">{label}</div>
-                  <div className="text-sm text-dark-foreground/60">{desc}</div>
-                </div>
-              </div>
+      <section className="relative section-padding bg-dark overflow-hidden">
+        <GridBackdrop variant="lines" className="opacity-30" />
+        <div className="relative container-wide">
+          <Reveal className="max-w-2xl mb-14">
+            <Eyebrow>Network Highlights</Eyebrow>
+            <h2 className="font-display mt-5 text-display-lg text-dark-foreground">
+              Built for a continental customer base.
+            </h2>
+          </Reveal>
+
+          <RevealGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-hairline border border-hairline">
+            {highlights.map(([label, desc]) => (
+              <RevealItem key={label} className="bg-dark">
+                <GlassCard hoverable={false} className="p-7 lg:p-8 h-full bg-transparent border-0">
+                  <div className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 shrink-0" />
+                    <div>
+                      <div className="font-display text-base text-dark-foreground">{label}</div>
+                      <div className="mt-2 text-sm text-dark-foreground/65 leading-relaxed">{desc}</div>
+                    </div>
+                  </div>
+                </GlassCard>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
-      <section className="bg-gradient-brand section-padding">
-        <div className="container-wide text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-4">Need a Network Solution?</h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Our network engineering team can design a bespoke solution for your organisation.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center px-8 py-4 text-sm font-semibold bg-dark text-dark-foreground hover:bg-dark/90 transition-colors"
-          >
-            Request a Quote
-          </Link>
-        </div>
-      </section>
+      <CtaBand
+        eyebrow="Need a network solution?"
+        title={<>Engineer a bespoke network <span className="text-gradient-aurora">with us</span>.</>}
+        description="Our network engineering team can design a solution that maps to your scale, geography and SLA targets."
+        primaryLabel="Request a Quote"
+        secondaryLabel="View Data Centres"
+        secondaryTo="/data-centres"
+      />
     </Layout>
   );
 }
