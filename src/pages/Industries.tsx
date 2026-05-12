@@ -1,12 +1,11 @@
-import {
-  Landmark, Building2, Wifi, Rocket, Globe,
-} from "lucide-react";
+import { Landmark, Building2, Wifi, Rocket, Globe } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
-import SectionHeading from "@/components/shared/SectionHeading";
+import CtaBand from "@/components/shared/CtaBand";
+import Eyebrow from "@/components/ui-system/Eyebrow";
+import GridBackdrop from "@/components/ui-system/GridBackdrop";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
 import industriesHero from "@/assets/industries-hero.jpg";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const industries = [
   {
@@ -37,7 +36,7 @@ const industries = [
     icon: Globe,
     title: "Large Enterprises",
     description: "Multi-site enterprises benefit from our MPLS networks, dedicated internet access, and hybrid cloud solutions designed for complex, distributed operations. Our open neutral-access digital infrastructure facilitates best-in-class voice and data service.",
-    capabilities: ["MPLS Networks", "Dedicated Internet", "Hybrid Cloud", "Managed WAN", "Storage as a Service"],
+    capabilities: ["Hybrid Cloud", "MPLS L3 VPN", "Dedicated Internet", "Storage as a Service", "Managed Security"],
   },
 ];
 
@@ -45,61 +44,80 @@ export default function IndustriesPage() {
   return (
     <Layout>
       <PageHero
-        title="Industries We Serve"
-        description="Secure, scalable infrastructure for fast-tracking digital transformation in key industries across Ghana."
+        eyebrow="Industries"
+        title="Trusted by Ghana's most critical sectors."
+        description="From government to fintech, telecom to logistics — we power the operators that move the country forward."
         bgImage={industriesHero}
       />
 
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <SectionHeading
-            label="Sectors"
-            title="Delivering to Industry Needs"
-            description="Tailored solutions built on a common, carrier-grade platform."
-          />
-          <div className="space-y-8">
-            {industries.map((ind, i) => (
-              <motion.div
-                key={ind.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="grid lg:grid-cols-3 gap-6 p-8 border border-border bg-card"
-              >
-                <div className="lg:col-span-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-primary/10 flex items-center justify-center">
-                      <ind.icon className="w-5 h-5 text-primary" />
+      <section className="relative section-padding bg-background overflow-hidden">
+        <GridBackdrop variant="dots" className="opacity-40" />
+        <div className="relative container-wide">
+          <div className="grid lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32">
+                <Reveal>
+                  <Eyebrow>Sectors served</Eyebrow>
+                  <h2 className="font-display mt-5 text-display-lg text-foreground">
+                    One operator. <br /><span className="text-gradient-aurora">Every sector.</span>
+                  </h2>
+                  <p className="mt-6 text-base text-muted-foreground leading-relaxed">
+                    Each industry has unique latency, sovereignty and SLA needs. We tailor the stack — connectivity, compute and security — to fit.
+                  </p>
+                  <ul className="mt-8 space-y-3">
+                    {industries.map((ind) => (
+                      <li key={ind.title} className="flex items-center gap-3 text-sm text-foreground/80">
+                        <ind.icon className="w-4 h-4 text-secondary" />
+                        {ind.title}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              </div>
+            </div>
+
+            <RevealGroup className="lg:col-span-8 space-y-5">
+              {industries.map((ind, i) => (
+                <RevealItem key={ind.title}>
+                  <div className="group relative overflow-hidden p-7 lg:p-8 border border-hairline bg-card transition-all duration-500 hover:border-primary/40 hover:shadow-[var(--shadow-card)]">
+                    <span className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-secondary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="grid lg:grid-cols-12 gap-6">
+                      <div className="lg:col-span-7">
+                        <div className="flex items-center gap-4">
+                          <div className="w-11 h-11 glass flex items-center justify-center">
+                            <ind.icon className="w-5 h-5 text-secondary" />
+                          </div>
+                          <div className="font-display text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                            0{i + 1} · Sector
+                          </div>
+                        </div>
+                        <h3 className="font-display mt-5 text-2xl text-foreground">{ind.title}</h3>
+                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{ind.description}</p>
+                      </div>
+                      <div className="lg:col-span-5 flex flex-wrap gap-2 content-start">
+                        {ind.capabilities.map((c) => (
+                          <span key={c} className="text-[11px] font-medium px-3 py-1.5 border border-hairline text-foreground/85 hover:border-secondary/40 transition-colors">
+                            {c}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground">{ind.title}</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{ind.description}</p>
-                </div>
-                <div className="flex flex-wrap gap-2 content-start">
-                  {ind.capabilities.map((c) => (
-                    <span key={c} className="text-xs font-medium px-3 py-1.5 bg-primary/10 text-primary">
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                </RevealItem>
+              ))}
+            </RevealGroup>
           </div>
         </div>
       </section>
 
-      <section className="bg-gradient-brand section-padding">
-        <div className="container-wide text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-4">Find the Right Solution for Your Industry</h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Our sector specialists can recommend the optimal infrastructure stack for your organisation.
-          </p>
-          <Link to="/contact" className="inline-flex items-center px-8 py-4 text-sm font-semibold bg-dark text-dark-foreground hover:bg-dark/90 transition-colors">
-            Speak to a Specialist
-          </Link>
-        </div>
-      </section>
+      <CtaBand
+        eyebrow="Find your fit"
+        title={<>The right infrastructure for <span className="text-gradient-aurora">your industry</span>.</>}
+        description="Our sector specialists can recommend the optimal infrastructure stack for your organisation."
+        primaryLabel="Speak to a Specialist"
+        secondaryLabel="Explore Solutions"
+        secondaryTo="/connectivity"
+      />
     </Layout>
   );
 }
