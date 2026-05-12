@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Eyebrow from "@/components/ui-system/Eyebrow";
 
 interface SectionHeadingProps {
   label?: string;
@@ -8,28 +9,26 @@ interface SectionHeadingProps {
   light?: boolean;
 }
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function SectionHeading({
   label,
   title,
   description,
-  centered = true,
+  centered = false,
   light = false,
 }: SectionHeadingProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.7, ease }}
       className={`max-w-3xl mb-12 lg:mb-16 ${centered ? "mx-auto text-center" : ""}`}
     >
-      {label && (
-        <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-3">
-          {label}
-        </span>
-      )}
+      {label && <Eyebrow tone="accent">{label}</Eyebrow>}
       <h2
-        className={`text-3xl lg:text-4xl font-bold tracking-tight ${
+        className={`font-display mt-5 text-display-lg ${
           light ? "text-dark-foreground" : "text-foreground"
         }`}
       >
@@ -37,7 +36,7 @@ export default function SectionHeading({
       </h2>
       {description && (
         <p
-          className={`mt-4 text-base lg:text-lg leading-relaxed ${
+          className={`mt-5 text-base lg:text-lg leading-relaxed ${
             light ? "text-dark-foreground/70" : "text-muted-foreground"
           }`}
         >
