@@ -622,7 +622,7 @@ export default function HomePage() {
       <AboutBento />
       <ServicesThree />
       <ExpertiseGrid />
-      <PricingTiers />
+      <IndustriesWeServe />
       <Testimonials />
       <BlogStrip />
       <CtaPanel />
