@@ -315,12 +315,12 @@ function ExpertiseGrid() {
     <section className="bg-muted/40 section-padding-sm">
       <div className="container-wide">
         <Reveal className="text-center max-w-2xl mx-auto">
-          <Eyebrow tone="muted">Expertise</Eyebrow>
+          <Eyebrow tone="muted">Why Smart Infraco</Eyebrow>
           <h2 className="font-display mt-5 text-display-lg text-foreground">
-            Where engineering meets operational excellence.
+            Strength, resource, capacity — the partner of choice for CSPs in Ghana.
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Real-time monitoring, automation and analytics — built into every service we operate.
+            One trusted infrastructure partner — built for reliability, scale and enterprise performance across the nation.
           </p>
         </Reveal>
 
@@ -330,8 +330,8 @@ function ExpertiseGrid() {
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
                 <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">Performance</div>
-                  <div className="mt-1 font-display text-2xl font-semibold">50+ <span className="text-xs font-normal text-primary">↑ 14%</span></div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">One portal</div>
+                  <div className="mt-1 font-display text-2xl font-semibold">1 <span className="text-xs font-normal text-primary">window</span></div>
                   <div className="mt-2 space-y-1">
                     {[60, 40, 80].map((w, i) => (
                       <div key={i} className="h-1 rounded-full bg-white/20"><div className="h-full rounded-full bg-primary" style={{ width: `${w}%` }} /></div>
@@ -339,8 +339,8 @@ function ExpertiseGrid() {
                   </div>
                 </div>
                 <div className="absolute right-6 bottom-0 w-44 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Throughput</div>
-                  <div className="mt-1 font-display text-xl font-semibold text-foreground">$4,900 <span className="text-[10px] font-normal text-muted-foreground">/ $10,000</span></div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Continental reach</div>
+                  <div className="mt-1 font-display text-xl font-semibold text-foreground">Pan-African <span className="text-[10px] font-normal text-muted-foreground">coverage</span></div>
                   <div className="mt-2 grid grid-cols-2 gap-1">
                     {Array.from({ length: 6 }).map((_, i) => (
                       <div key={i} className="h-1.5 rounded-full bg-muted" />
@@ -348,9 +348,9 @@ function ExpertiseGrid() {
                   </div>
                 </div>
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Automation &amp; orchestration</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">A single window interface</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Streamline operations with intelligent workflow automation — reducing errors and boosting productivity across every layer of the stack.
+                One provider, one contract, one portal — helping you gain cost efficiencies and extended reach across the continent.
               </p>
             </div>
           </RevealItem>
@@ -360,20 +360,20 @@ function ExpertiseGrid() {
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
                 <div className="absolute left-6 top-2 w-52 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">Expertise <span className="text-primary">●</span> that combines</div>
-                  <div className="mt-1 text-xs">Strategy, Data, and Operations Intelligence</div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">Uptime <span className="text-primary">●</span> guaranteed</div>
+                  <div className="mt-1 text-xs">Carrier-grade reliability &amp; secure-by-design network</div>
                 </div>
                 <div className="absolute right-6 bottom-0 w-48 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Intelligence in every decision</div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">99.99% availability</div>
                   <svg viewBox="0 0 100 40" className="mt-2 w-full h-10">
                     <polyline points="0,30 20,22 40,26 60,12 80,18 100,6" fill="none" stroke="hsl(75 100% 50%)" strokeWidth="2" />
                     <polyline points="0,35 20,30 40,32 60,24 80,28 100,18" fill="none" stroke="hsl(206 70% 50%)" strokeWidth="2" />
                   </svg>
                 </div>
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Data analytics &amp; insights</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Reliability and security</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Transform raw telemetry into strategic insight using advanced analytics, dashboards and predictive modelling.
+                Resilient, redundant and secure infrastructure — engineered to keep your services online and your data protected, 24/7.
               </p>
             </div>
           </RevealItem>
@@ -383,23 +383,23 @@ function ExpertiseGrid() {
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
                 <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">Performance</div>
-                  <div className="mt-1 font-display text-3xl font-semibold">49% <span className="text-xs font-normal text-primary">↑</span></div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">National fibre</div>
+                  <div className="mt-1 font-display text-3xl font-semibold">1,000<span className="text-xs font-normal text-primary"> km</span></div>
                   <div className="mt-2 flex gap-1 text-[9px] text-white/60">
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Strategy</span>
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Insight</span>
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Scale</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Metro</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Long-haul</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Subsea</span>
                   </div>
                 </div>
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Digital transformation</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Unrivalled scale and network reach</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                We help organisations modernise full-stack digital evolution — modernising systems, processes and decision-making frameworks.
+                Owned national fibre, towers and data centres — extending your reach into every region of Ghana and beyond.
               </p>
             </div>
           </RevealItem>
 
-          {/* Card 4 — Experience intelligence */}
+          {/* Card 4 — Enterprise-grade services */}
           <RevealItem>
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
@@ -410,15 +410,15 @@ function ExpertiseGrid() {
                   <div key={side} className="absolute top-12 w-28 rounded-lg bg-white border border-border p-2 shadow-card" style={{ [side < 0 ? "left" : "right"]: "1.5rem" }}>
                     <div className="flex items-center gap-1.5">
                       <span className="w-4 h-4 rounded-full bg-primary/30" />
-                      <span className="text-[9px] text-muted-foreground">Insight #{side < 0 ? "01" : "02"}</span>
+                      <span className="text-[9px] text-muted-foreground">SLA #{side < 0 ? "01" : "02"}</span>
                     </div>
                     <div className="mt-1 h-1 w-2/3 rounded bg-muted" />
                   </div>
                 ))}
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Experience intelligence</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Enterprise-grade services</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Combine data, design and engineering to deliver digital experiences that connect with users at every touchpoint.
+                Backed by strict SLAs, 24/7 NOC support and a dedicated account team — the standard of service enterprises and CSPs demand.
               </p>
             </div>
           </RevealItem>
