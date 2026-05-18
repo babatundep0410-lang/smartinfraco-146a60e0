@@ -113,25 +113,6 @@ function Hero() {
               <MagneticButton to="/connectivity" variant="primary">Explore Solutions</MagneticButton>
               <MagneticButton to="/contact" variant="ghost">Speak to an Engineer</MagneticButton>
             </motion.div>
-
-            {/* meta strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4"
-            >
-              {[
-                { k: "Tier III", v: "Accra Data Centre" },
-                { k: "1,010 km", v: "National Fibre Backbone" },
-                { k: "100 Gbps", v: "Dedicated Internet Access" },
-              ].map((m) => (
-                <div key={m.k} className="flex items-baseline gap-2">
-                  <span className="font-display text-base font-semibold text-secondary tabular-nums">{m.k}</span>
-                  <span className="text-xs uppercase tracking-[0.18em] text-dark-foreground/50">{m.v}</span>
-                </div>
-              ))}
-            </motion.div>
           </div>
 
           {/* Right — live network panel */}
