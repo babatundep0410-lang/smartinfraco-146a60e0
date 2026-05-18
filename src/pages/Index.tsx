@@ -1,22 +1,17 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Network, Server, Cloud, Shield, Globe, Clock,
-  Building2, Landmark, Wifi, HardDrive, MonitorCheck, Headphones, Smartphone,
-  ArrowUpRight, Activity, Zap, Radio,
+  Network, Server, Cloud, Shield, Globe, Zap, Activity,
+  Building2, Landmark, Wifi, HardDrive, MonitorCheck, Smartphone,
+  Sparkles, TrendingUp, Check, Quote, ArrowRight, ArrowUpRight, Star,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Eyebrow from "@/components/ui-system/Eyebrow";
-import GridBackdrop from "@/components/ui-system/GridBackdrop";
-import GlassCard from "@/components/ui-system/GlassCard";
-import NetworkCanvas from "@/components/ui-system/NetworkCanvas";
-import MarqueeRow from "@/components/ui-system/MarqueeRow";
 import AnimatedCounter from "@/components/ui-system/AnimatedCounter";
 import MagneticButton from "@/components/ui-system/MagneticButton";
-import SectionDivider from "@/components/ui-system/SectionDivider";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
-import appMockup from "@/assets/app-mockup.png";
 import heroSky from "@/assets/hero-sky.jpg";
+import ctaSky from "@/assets/cta-sky.jpg";
 import svcNetwork from "@/assets/service-network.jpg";
 import svcInternet from "@/assets/service-internet.jpg";
 import svcDatacenter from "@/assets/service-datacenter.jpg";
@@ -26,47 +21,10 @@ import svcManaged from "@/assets/service-managed.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-/* ---------------- Data ---------------- */
-
-const services = [
-  { icon: Network,      title: "Network Solutions",        description: "Highly reliable, always-available network for critical applications and end-users.", href: "/connectivity", image: svcNetwork, featured: true },
-  { icon: Wifi,         title: "Dedicated Internet Access", description: "Carrier-grade DIA with bandwidths up to 100 Gbps.", href: "/connectivity", image: svcInternet },
-  { icon: Server,       title: "Data Centre Services",      description: "Tier III Accra & Tier II Kumasi — Ghana's most modern facilities.", href: "/data-centres", image: svcDatacenter },
-  { icon: Cloud,        title: "Cloud Services",            description: "Hybrid cloud, VPS and managed compute with sovereignty by design.", href: "/cloud-services", image: svcCloud },
-  { icon: HardDrive,    title: "Storage & Backup",          description: "STaaS and BaaS for resilience, compliance and local data sovereignty.", href: "/cloud-services", image: svcStorage },
-  { icon: MonitorCheck, title: "Managed IT Services",       description: "End-to-end infrastructure management with 24/7 NOC support.", href: "/cloud-services", image: svcManaged },
-];
-
-const stats = [
-  { value: 1010, suffix: "+",  label: "KM of National Backbone", icon: Network },
-  { value: 1500, suffix: "+",  label: "Institutions Served",     icon: Building2 },
-  { value: 99.99, decimals: 2, suffix: "%",  label: "Network Availability SLA", icon: Activity },
-  { value: 24,   suffix: "/7", label: "NOC & SOC Operations",    icon: Shield },
-];
-
-const reasons = [
-  { icon: Shield,      title: "Reliability & Security",     description: "Industry-leading capabilities in delivering highly available and secure services." },
-  { icon: Globe,       title: "Unrivalled Scale & Reach",   description: "Access to one of the most wide-reaching networks across Ghana." },
-  { icon: Headphones,  title: "Single Window Interface",    description: "One provider for cost efficiencies and continental reach." },
-  { icon: Clock,       title: "Enterprise-Grade Service",   description: "International-standard management backed by stringent SLAs." },
-];
-
-const industries = [
-  { icon: Landmark,  title: "Government MDAs" },
-  { icon: Building2, title: "Financial Institutions" },
-  { icon: Wifi,      title: "Telecom & ISPs" },
-  { icon: Globe,     title: "Large Enterprises" },
-];
-
-const sectorMarquee = [
-  "Government", "Banking", "Telecommunications", "Energy", "Healthcare",
-  "Education", "Logistics", "Media", "Manufacturing", "Mining",
-];
-
-/* ---------------- Sections ---------------- */
-
+/* ============================================================
+   HERO  (Aeline-style sky + fanned cards)
+   ============================================================ */
 function Hero() {
-  // fanned card arc — uses existing service images for visual continuity
   const fanCards = [
     { img: svcNetwork,    label: "National Fibre" },
     { img: svcInternet,   label: "100 Gbps DIA" },
@@ -79,22 +37,13 @@ function Hero() {
 
   return (
     <section className="relative overflow-hidden pt-28 lg:pt-32 min-h-[100vh]">
-      {/* sky background */}
-      <img
-        src={heroSky}
-        alt=""
-        width={1920}
-        height={1088}
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
+      <img src={heroSky} alt="" width={1920} height={1088} className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
 
       <div className="relative container-wide pt-16 lg:pt-24 pb-32 lg:pb-40">
-        {/* headline */}
         <div className="text-center max-w-5xl mx-auto">
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.1 }}
             className="font-display text-display-2xl text-white"
           >
@@ -103,8 +52,7 @@ function Hero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.25 }}
             className="mt-8 text-base lg:text-lg text-white/85 max-w-xl mx-auto leading-relaxed"
           >
@@ -113,8 +61,7 @@ function Hero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.4 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
@@ -125,8 +72,7 @@ function Hero() {
 
         {/* fanned card arc */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease, delay: 0.5 }}
           className="relative mt-20 lg:mt-28 h-[260px] lg:h-[300px]"
           style={{ perspective: "1400px" }}
@@ -140,7 +86,7 @@ function Hero() {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 40, rotate: 0 }}
+                  initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: translateY, rotate }}
                   transition={{ duration: 0.9, ease, delay: 0.6 + i * 0.06 }}
                   whileHover={{ y: translateY - 14, scale: 1.04 }}
@@ -158,10 +104,8 @@ function Hero() {
           </div>
         </motion.div>
 
-        {/* rating */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 1.4 }}
           className="mt-12 text-center"
         >
@@ -170,9 +114,7 @@ function Hero() {
           </p>
           <div className="mt-2 flex justify-center gap-1 text-primary">
             {Array.from({ length: 5 }).map((_, i) => (
-              <svg key={i} viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                <path d="M12 .587l3.668 7.568L24 9.75l-6 5.853L19.336 24 12 19.897 4.664 24 6 15.603 0 9.75l8.332-1.595z" />
-              </svg>
+              <Star key={i} className="w-4 h-4 fill-current" />
             ))}
           </div>
         </motion.div>
@@ -181,79 +123,180 @@ function Hero() {
   );
 }
 
-function TrustStrip() {
+/* ============================================================
+   LOGO STRIP
+   ============================================================ */
+function LogoStrip() {
+  const sectors = ["Government", "Banking", "Telecoms", "Energy", "Healthcare", "Education", "Logistics", "Mining"];
   return (
-    <section className="relative bg-dark border-b border-hairline py-10 lg:py-14">
-      <div className="container-wide mb-6">
-        <Eyebrow tone="muted" className="opacity-80">Trusted across critical sectors</Eyebrow>
-      </div>
-      <MarqueeRow
-        speed="slow"
-        items={sectorMarquee.map((label) => (
-          <div className="flex items-center gap-3 text-dark-foreground/40 hover:text-secondary transition-colors duration-500">
-            <span className="font-display text-2xl lg:text-3xl font-medium tracking-tight">{label}</span>
-            <span className="w-1 h-1 rounded-full bg-current opacity-60" />
+    <section className="bg-white py-10 lg:py-12 border-y border-border">
+      <div className="container-wide flex flex-wrap items-center justify-center gap-x-10 gap-y-4 lg:gap-x-16">
+        {sectors.map((s) => (
+          <div key={s} className="flex items-center gap-2 text-muted-foreground/70">
+            <span className="w-5 h-5 rounded-full border border-muted-foreground/30 flex items-center justify-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50" />
+            </span>
+            <span className="text-sm font-medium">{s}</span>
           </div>
         ))}
-      />
+      </div>
     </section>
   );
 }
 
-function ServicesBento() {
+/* ============================================================
+   ABOUT BENTO
+   ============================================================ */
+function AboutBento() {
   return (
-    <section className="relative section-padding bg-background overflow-hidden">
-      <GridBackdrop variant="dots" className="opacity-50" />
-      <div className="relative container-wide">
-        <div className="grid lg:grid-cols-12 gap-6 mb-14 items-end">
-          <Reveal className="lg:col-span-7">
-            <Eyebrow>Core Services</Eyebrow>
-            <h2 className="font-display mt-5 text-display-lg text-foreground">
-              A unified stack for the modern enterprise.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="text-base text-muted-foreground max-w-md lg:ml-auto leading-relaxed">
-              Every layer engineered to interlock — connectivity, compute, storage and security under a single operator with national reach.
-            </p>
-          </Reveal>
-        </div>
+    <section className="bg-muted/40 section-padding-sm">
+      <div className="container-narrow">
+        <Reveal className="text-center max-w-3xl mx-auto">
+          <Eyebrow tone="muted">About Us</Eyebrow>
+          <h2 className="font-display mt-5 text-display-lg text-foreground">
+            A national infrastructure partner
+            <br />
+            dedicated to building{" "}
+            <span className="inline-flex items-center gap-2 align-middle">
+              <span className="inline-flex w-9 h-9 rounded-full bg-primary items-center justify-center">
+                <Sparkles className="w-4 h-4 text-primary-foreground" />
+              </span>
+              <span className="font-semibold">smarter</span>
+            </span>
+            <br className="hidden sm:block" />
+            and{" "}
+            <span className="inline-flex items-center gap-2 align-middle">
+              <span className="inline-flex w-9 h-9 rounded-full bg-primary items-center justify-center">
+                <TrendingUp className="w-4 h-4 text-primary-foreground" />
+              </span>
+              <span className="font-light italic">more resilient</span>
+            </span>{" "}
+            networks.
+          </h2>
+        </Reveal>
 
-        <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
-          {services.map((s) => (
-            <RevealItem
-              key={s.title}
-              className={
-                s.featured ? "md:col-span-2 lg:col-span-4 lg:row-span-2" : "md:col-span-1 lg:col-span-2"
-              }
-            >
-              <Link
-                to={s.href}
-                className={`group relative h-full block overflow-hidden border border-hairline bg-card transition-all duration-500 ease-out-expo
-                  hover:border-primary/40 hover:-translate-y-1 hover:shadow-[var(--glow-primary)]
-                  ${s.featured ? "p-8 lg:p-10 min-h-[320px]" : "p-6 lg:p-7 min-h-[200px]"}`}
-              >
-                <img
-                  src={s.image}
-                  alt=""
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700 ease-out-expo"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/85 to-card/40 group-hover:from-card/95 group-hover:via-card/70 transition-colors duration-700" />
-                <GridBackdrop variant="lines" className="opacity-20 group-hover:opacity-35 transition-opacity duration-700" />
-                <div className="relative flex flex-col h-full">
-                  <div className="flex items-start justify-between">
-                    <div className="w-11 h-11 glass flex items-center justify-center">
-                      <s.icon className="w-5 h-5 text-secondary" />
-                    </div>
-                    <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-50 group-hover:opacity-100 group-hover:text-secondary transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </div>
-                  <h3 className={`font-display mt-auto pt-10 ${s.featured ? "text-3xl lg:text-4xl" : "text-xl"} text-foreground leading-tight`}>
-                    {s.title}
-                  </h3>
-                  <p className={`mt-3 text-sm text-muted-foreground leading-relaxed ${s.featured ? "max-w-md" : ""}`}>
-                    {s.description}
-                  </p>
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-12 gap-5">
+          {/* blue stat card */}
+          <RevealItem className="md:col-span-4">
+            <div className="relative h-full rounded-3xl overflow-hidden p-7 text-white min-h-[260px] flex flex-col justify-between"
+                 style={{ background: "linear-gradient(160deg, hsl(206 70% 50%), hsl(206 80% 35%))" }}>
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em]">Smart Infraco</span>
+                <span className="inline-flex w-8 h-8 rounded-full bg-white/20 items-center justify-center">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+              </div>
+              <div>
+                <div className="font-display text-6xl font-semibold tabular-nums">
+                  <AnimatedCounter to={1500} suffix="+" />
+                </div>
+                <p className="mt-3 text-sm text-white/80">
+                  Institutions served across Ghana — from government MDAs to leading enterprises and telecom providers.
+                </p>
+              </div>
+            </div>
+          </RevealItem>
+
+          {/* white quote card */}
+          <RevealItem className="md:col-span-4">
+            <div className="relative h-full rounded-3xl bg-white p-7 min-h-[260px] flex flex-col justify-between border border-border">
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/60">Network availability</div>
+                <div className="mt-3 font-display text-5xl font-semibold text-foreground tabular-nums">
+                  <AnimatedCounter to={99.99} decimals={2} suffix="%" />
+                </div>
+              </div>
+              <div>
+                <div className="flex -space-x-2 mb-3">
+                  {["A", "K", "T", "B"].map((c, i) => (
+                    <span key={i} className="w-7 h-7 rounded-full border-2 border-white text-[11px] font-semibold flex items-center justify-center text-white"
+                          style={{ background: `hsl(${[206, 75, 225, 200][i]} 60% 50%)` }}>{c}</span>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  "Smart Infraco completely reshaped how we operate. Resilient, secure and engineered for our scale."
+                </p>
+              </div>
+            </div>
+          </RevealItem>
+
+          {/* lime stat card */}
+          <RevealItem className="md:col-span-4">
+            <div className="relative h-full rounded-3xl bg-primary p-7 min-h-[260px] flex flex-col justify-between text-primary-foreground">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em]">Backbone</span>
+                <Network className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="font-display text-6xl font-semibold tabular-nums">
+                  <AnimatedCounter to={1010} suffix="" /> km
+                </div>
+                <p className="mt-3 text-sm text-primary-foreground/80">
+                  National fibre backbone reaching every region — engineered for sub-millisecond intra-Ghana latency.
+                </p>
+              </div>
+            </div>
+          </RevealItem>
+
+          {/* black wide counter */}
+          <RevealItem className="md:col-span-12">
+            <div className="relative rounded-3xl bg-secondary text-secondary-foreground p-7 flex items-center justify-between gap-6 flex-wrap">
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary-foreground/60">Active connections</div>
+                <div className="mt-2 font-display text-4xl lg:text-5xl font-semibold">
+                  <AnimatedCounter to={48} suffix="+" /> PoPs · <AnimatedCounter to={2} /> Tier III & II data centres
+                </div>
+              </div>
+              <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-primary group">
+                More about us
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+            </div>
+          </RevealItem>
+        </RevealGroup>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   SERVICES (3-card)
+   ============================================================ */
+function ServicesThree() {
+  const items = [
+    { title: "Connectivity", desc: "National fibre backbone, metro rings and dedicated internet access up to 100 Gbps.", img: svcNetwork, href: "/connectivity", icon: Network },
+    { title: "Data Centres", desc: "Tier III Accra and Tier II Kumasi — Ghana's most modern colocation facilities.", img: svcDatacenter, href: "/data-centres", icon: Server },
+    { title: "Cloud & Security", desc: "Sovereign hybrid cloud, managed storage, BaaS and a 24/7 SOC.", img: svcCloud, href: "/cloud-services", icon: Cloud },
+  ];
+  return (
+    <section className="bg-muted/40 section-padding-sm">
+      <div className="container-wide">
+        <Reveal className="text-center max-w-2xl mx-auto">
+          <Eyebrow tone="muted">Services</Eyebrow>
+          <h2 className="font-display mt-5 text-display-lg text-foreground">
+            Comprehensive infrastructure and intelligent operations.
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            Whether you're scaling today or building for tomorrow, we help you move faster with confidence.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
+          </div>
+        </Reveal>
+
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {items.map((s) => (
+            <RevealItem key={s.title}>
+              <Link to={s.href} className="group block h-full rounded-3xl bg-white border border-border p-5 hover:shadow-elevated transition-shadow">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                  <img src={s.img} alt={s.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <span className="absolute top-3 left-3 w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
+                    <s.icon className="w-4 h-4" />
+                  </span>
+                </div>
+                <div className="px-2 pt-5 pb-2">
+                  <h3 className="font-display text-xl font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
               </Link>
             </RevealItem>
@@ -264,149 +307,218 @@ function ServicesBento() {
   );
 }
 
-function NetworkSection() {
+/* ============================================================
+   EXPERTISE GRID (4 mixed feature cards)
+   ============================================================ */
+function ExpertiseGrid() {
   return (
-    <section className="relative bg-dark overflow-hidden section-padding">
-      <GridBackdrop variant="lines" className="opacity-40" />
-      <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-30"
-           style={{ background: "radial-gradient(closest-side, hsl(var(--primary) / 0.6), transparent 70%)" }} />
-
-      <div className="relative container-wide">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5">
-            <Reveal>
-              <Eyebrow>National Infrastructure</Eyebrow>
-              <h2 className="font-display mt-5 text-display-lg text-dark-foreground">
-                One network. <br />
-                <span className="text-gradient-aurora">Ten regions.</span>
-              </h2>
-              <p className="mt-6 text-base text-dark-foreground/70 leading-relaxed max-w-md">
-                Our backbone reaches from the coast to the northern corridor — fibre, metro rings, data centres and PoPs engineered for sub-millisecond intra-Ghana latency.
-              </p>
-
-              <ul className="mt-8 space-y-4">
-                {[
-                  { dot: "primary",   label: "National Fibre Backbone", value: "1,010 km" },
-                  { dot: "secondary", label: "Metro Rings (Accra · Kumasi)", value: "Dual-path" },
-                  { dot: "primary",   label: "Tier III & II Data Centres", value: "2 facilities" },
-                  { dot: "secondary", label: "Points of Presence", value: "48+" },
-                ].map((row) => (
-                  <li key={row.label} className="flex items-center justify-between py-3 border-b border-hairline">
-                    <div className="flex items-center gap-3">
-                      <span className={`w-1.5 h-1.5 rounded-full ${row.dot === "primary" ? "bg-primary" : "bg-secondary"}`} />
-                      <span className="text-sm text-dark-foreground/85">{row.label}</span>
-                    </div>
-                    <span className="font-display text-sm font-semibold text-dark-foreground tabular-nums">{row.value}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-10">
-                <MagneticButton to="/connectivity" variant="accent">View Network Coverage</MagneticButton>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.15} className="lg:col-span-7">
-            <div className="relative aspect-[5/4] glass p-6 lg:p-8">
-              <div className="absolute top-5 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                <span className="flex items-center gap-2"><span className="pulse-dot" /> Live topology</span>
-                <span>GHA · v2.4</span>
-              </div>
-              <NetworkCanvas />
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function StatsBand() {
-  return (
-    <section className="relative bg-background overflow-hidden border-y border-hairline">
-      <GridBackdrop variant="dots" className="opacity-40" />
-      <div className="relative container-wide py-20 lg:py-24">
-        <Reveal className="mb-12">
-          <Eyebrow>By the numbers</Eyebrow>
-        </Reveal>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 lg:divide-x lg:divide-hairline">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.08} className="lg:px-8 first:lg:pl-0 last:lg:pr-0">
-              <s.icon className="w-5 h-5 text-secondary mb-4" />
-              <div className="font-display text-5xl lg:text-6xl font-medium text-foreground tracking-tight tabular-nums">
-                <AnimatedCounter to={s.value} decimals={s.decimals ?? 0} suffix={s.suffix ?? ""} />
-              </div>
-              <div className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">{s.label}</div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function WhyUs() {
-  return (
-    <section className="relative section-padding bg-background overflow-hidden">
+    <section className="bg-muted/40 section-padding-sm">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-12 gap-10 mb-14">
-          <Reveal className="lg:col-span-6">
-            <Eyebrow>Why Smart Infraco</Eyebrow>
-            <h2 className="font-display mt-5 text-display-lg text-foreground">
-              Strength, resource, capacity — at continental scale.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-6 lg:pt-4">
-            <p className="text-base text-muted-foreground max-w-xl leading-relaxed">
-              The partner of choice for CSPs in Ghana. We combine government-grade security posture with the agility of a modern infrastructure operator.
-            </p>
-          </Reveal>
-        </div>
+        <Reveal className="text-center max-w-2xl mx-auto">
+          <Eyebrow tone="muted">Expertise</Eyebrow>
+          <h2 className="font-display mt-5 text-display-lg text-foreground">
+            Where engineering meets operational excellence.
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            Real-time monitoring, automation and analytics — built into every service we operate.
+          </p>
+        </Reveal>
 
-        <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-hairline border border-hairline">
-          {reasons.map((r) => (
-            <RevealItem key={r.title} className="bg-background">
-              <div className="group relative h-full p-8 lg:p-10 transition-colors duration-500 hover:bg-card">
-                <div className="w-11 h-11 glass flex items-center justify-center mb-6 group-hover:border-secondary/40 transition-colors duration-500">
-                  <r.icon className="w-5 h-5 text-secondary" />
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Card 1 — Automation */}
+          <RevealItem>
+            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
+              <div className="relative h-44 flex items-center justify-center mb-8">
+                <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">Performance</div>
+                  <div className="mt-1 font-display text-2xl font-semibold">50+ <span className="text-xs font-normal text-primary">↑ 14%</span></div>
+                  <div className="mt-2 space-y-1">
+                    {[60, 40, 80].map((w, i) => (
+                      <div key={i} className="h-1 rounded-full bg-white/20"><div className="h-full rounded-full bg-primary" style={{ width: `${w}%` }} /></div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="font-display text-lg font-medium text-foreground">{r.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{r.description}</p>
+                <div className="absolute right-6 bottom-0 w-44 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Throughput</div>
+                  <div className="mt-1 font-display text-xl font-semibold text-foreground">$4,900 <span className="text-[10px] font-normal text-muted-foreground">/ $10,000</span></div>
+                  <div className="mt-2 grid grid-cols-2 gap-1">
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <div key={i} className="h-1.5 rounded-full bg-muted" />
+                    ))}
+                  </div>
+                </div>
               </div>
-            </RevealItem>
-          ))}
+              <h3 className="font-display text-2xl font-semibold text-foreground">Automation &amp; orchestration</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                Streamline operations with intelligent workflow automation — reducing errors and boosting productivity across every layer of the stack.
+              </p>
+            </div>
+          </RevealItem>
+
+          {/* Card 2 — Analytics */}
+          <RevealItem>
+            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
+              <div className="relative h-44 flex items-center justify-center mb-8">
+                <div className="absolute left-6 top-2 w-52 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">Expertise <span className="text-primary">●</span> that combines</div>
+                  <div className="mt-1 text-xs">Strategy, Data, and Operations Intelligence</div>
+                </div>
+                <div className="absolute right-6 bottom-0 w-48 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Intelligence in every decision</div>
+                  <svg viewBox="0 0 100 40" className="mt-2 w-full h-10">
+                    <polyline points="0,30 20,22 40,26 60,12 80,18 100,6" fill="none" stroke="hsl(75 100% 50%)" strokeWidth="2" />
+                    <polyline points="0,35 20,30 40,32 60,24 80,28 100,18" fill="none" stroke="hsl(206 70% 50%)" strokeWidth="2" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Data analytics &amp; insights</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                Transform raw telemetry into strategic insight using advanced analytics, dashboards and predictive modelling.
+              </p>
+            </div>
+          </RevealItem>
+
+          {/* Card 3 — Transformation */}
+          <RevealItem>
+            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
+              <div className="relative h-44 flex items-center justify-center mb-8">
+                <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">Performance</div>
+                  <div className="mt-1 font-display text-3xl font-semibold">49% <span className="text-xs font-normal text-primary">↑</span></div>
+                  <div className="mt-2 flex gap-1 text-[9px] text-white/60">
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Strategy</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Insight</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Scale</span>
+                  </div>
+                </div>
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Digital transformation</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                We help organisations modernise full-stack digital evolution — modernising systems, processes and decision-making frameworks.
+              </p>
+            </div>
+          </RevealItem>
+
+          {/* Card 4 — Experience intelligence */}
+          <RevealItem>
+            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
+              <div className="relative h-44 flex items-center justify-center mb-8">
+                <div className="absolute inset-x-0 top-6 mx-auto w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
+                  <Globe className="w-5 h-5 text-primary" />
+                </div>
+                {[-1, 1].map((side) => (
+                  <div key={side} className="absolute top-12 w-28 rounded-lg bg-white border border-border p-2 shadow-card" style={{ [side < 0 ? "left" : "right"]: "1.5rem" }}>
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-4 h-4 rounded-full bg-primary/30" />
+                      <span className="text-[9px] text-muted-foreground">Insight #{side < 0 ? "01" : "02"}</span>
+                    </div>
+                    <div className="mt-1 h-1 w-2/3 rounded bg-muted" />
+                  </div>
+                ))}
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Experience intelligence</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                Combine data, design and engineering to deliver digital experiences that connect with users at every touchpoint.
+              </p>
+            </div>
+          </RevealItem>
         </RevealGroup>
       </div>
     </section>
   );
 }
 
-function IndustriesBlock() {
+/* ============================================================
+   PRICING TIERS
+   ============================================================ */
+function PricingTiers() {
+  const tiers = [
+    {
+      name: "Standard",
+      icon: Wifi,
+      price: "$2,500",
+      unit: "/ month",
+      blurb: "Perfect for small teams beginning to explore IT and automation.",
+      features: ["Strategy consulting up to 10 hours", "Business process mapping", "Basic AI workflow setup", "Email support"],
+    },
+    {
+      name: "Enterprise",
+      icon: Building2,
+      price: "$8,500",
+      unit: "/ month",
+      blurb: "Designed for growing companies ready to integrate AI into their operations.",
+      features: ["Dedicated consultant", "End-to-end automation setup", "Predictive analytics dashboards", "AI-driven reporting & insights"],
+      highlighted: true,
+    },
+    {
+      name: "National",
+      icon: Landmark,
+      price: "$10,500",
+      unit: "/ month",
+      blurb: "Custom-built for businesses seeking full-scale transformation and options.",
+      features: ["Tailored AI implementation roadmap", "Custom automation architecture", "Advanced data analytics", "24/7 premium support"],
+    },
+  ];
+
   return (
-    <section className="relative section-padding bg-dark overflow-hidden">
-      <GridBackdrop variant="lines" className="opacity-30" />
-      <div className="relative container-wide">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
-          <Reveal>
-            <Eyebrow>Industries we serve</Eyebrow>
-            <h2 className="font-display mt-5 text-display-lg text-dark-foreground max-w-xl">
-              Trusted by Ghana's most critical sectors.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <Link to="/industries" className="story-link text-sm text-secondary inline-flex items-center gap-2">
-              View all industries <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </Reveal>
-        </div>
+    <section className="bg-muted/40 section-padding-sm">
+      <div className="container-wide">
+        <Reveal className="text-center max-w-2xl mx-auto">
+          <Eyebrow tone="muted">Pricing</Eyebrow>
+          <h2 className="font-display mt-5 text-display-lg text-foreground">
+            Flexible engagement models for every stage of growth.
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            Whether you're a partner moving in journey or scaling enterprise-wide innovation, we offer tailored solutions that grow with you.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
+          </div>
+        </Reveal>
 
-        <RevealGroup className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-hairline border border-hairline">
-          {industries.map((ind) => (
-            <RevealItem key={ind.title} className="bg-dark">
-              <div className="group h-full p-8 lg:p-10 flex flex-col items-start gap-6 transition-colors hover:bg-card">
-                <ind.icon className="w-7 h-7 text-secondary transition-transform duration-500 group-hover:scale-110" />
-                <span className="font-display text-lg font-medium text-dark-foreground">{ind.title}</span>
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {tiers.map((t) => (
+            <RevealItem key={t.name}>
+              <div
+                className={`relative h-full rounded-3xl p-7 lg:p-8 border ${
+                  t.highlighted
+                    ? "bg-primary border-primary text-primary-foreground"
+                    : "bg-white border-border text-foreground"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <span className={`w-8 h-8 rounded-full flex items-center justify-center ${t.highlighted ? "bg-secondary text-primary" : "bg-muted text-foreground"}`}>
+                    <t.icon className="w-4 h-4" />
+                  </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em]">{t.name} Plan</span>
+                </div>
+
+                <div className="mt-8 flex items-baseline gap-1">
+                  <div className="font-display text-5xl font-semibold tabular-nums">{t.price}</div>
+                  <div className={`text-sm ${t.highlighted ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{t.unit}</div>
+                </div>
+                <p className={`mt-3 text-sm ${t.highlighted ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{t.blurb}</p>
+
+                <ul className="mt-6 space-y-3">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm">
+                      <Check className={`w-4 h-4 mt-0.5 shrink-0 ${t.highlighted ? "text-primary-foreground" : "text-primary"}`} />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  to="/contact"
+                  className={`mt-8 inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] rounded-full ${
+                    t.highlighted ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"
+                  }`}
+                >
+                  Get Started
+                  <span className={`flex items-center justify-center w-7 h-7 rounded-full ${t.highlighted ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
               </div>
             </RevealItem>
           ))}
@@ -416,33 +528,51 @@ function IndustriesBlock() {
   );
 }
 
-function PartnersBlock() {
-  const partners = [
-    { name: "NITA", full: "National Information Technology Agency", description: "Smart Infraco partners with NITA to ensure effective maintenance and commercialisation of the nation's fibre cable in the Eastern corridor." },
-    { name: "Ascend Digital Solutions", full: "Digital Reimagined", description: "Our parent company Ascend Digital Solutions Ltd provides rural telephony to 2,016 locations, connecting 3.4 million Ghanaians to basic telephone services." },
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+function Testimonials() {
+  const quotes = [
+    { name: "Director, MDA Ghana", quote: "They brought clarity to complex problems, breaking down barriers and delivering innovative solutions." },
+    { name: "Head of IT, National Bank", quote: "They insight resolved difficult hurdles, opening new paths and creating highly effective strategies." },
+    { name: "CTO, Telecom Provider",  quote: "We found focus for tricky requirements, cutting through noise and providing truly advanced responses." },
+    { name: "COO, Energy Sector",     quote: "They gave a simple path to fix capability, removing all delays while building fresh brilliant projects." },
   ];
   return (
-    <section className="relative section-padding bg-background">
+    <section className="bg-muted/40 section-padding-sm">
       <div className="container-wide">
-        <Reveal className="mb-14 max-w-2xl">
-          <Eyebrow>Outstanding partnerships</Eyebrow>
-          <h2 className="font-display mt-5 text-display-lg text-foreground">
-            Built alongside the institutions shaping Ghana's future.
-          </h2>
+        <Reveal className="flex items-end justify-between flex-wrap gap-4 mb-10">
+          <div>
+            <Eyebrow tone="muted">Testimonials</Eyebrow>
+            <h2 className="font-display mt-5 text-display-lg text-foreground">What they say about us</h2>
+            <p className="mt-3 text-muted-foreground max-w-xl text-sm">
+              Here's what they shared about their experience working with our team.
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <button aria-label="prev" className="w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-foreground hover:bg-muted transition-colors">
+              <ArrowRight className="w-4 h-4 rotate-180" />
+            </button>
+            <button aria-label="next" className="w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-foreground hover:bg-muted transition-colors">
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
         </Reveal>
 
-        <RevealGroup className="grid md:grid-cols-2 gap-6">
-          {partners.map((p) => (
-            <RevealItem key={p.name}>
-              <GlassCard className="p-8 lg:p-10 h-full bg-card">
-                <div className="flex items-center justify-between mb-6">
-                  <Eyebrow tone="primary">Partner</Eyebrow>
-                  <Shield className="w-4 h-4 text-secondary" />
+        <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {quotes.map((q, i) => (
+            <RevealItem key={i}>
+              <div className="rounded-3xl bg-white border border-border overflow-hidden h-full flex flex-col">
+                <div className="relative aspect-square overflow-hidden bg-secondary flex items-center justify-center">
+                  <span className="font-display text-7xl font-semibold text-white/15">{q.name[0]}</span>
+                  <div className="absolute inset-0 grid-backdrop opacity-30" />
                 </div>
-                <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
-                <span className="block mt-1 text-xs text-muted-foreground uppercase tracking-[0.18em]">{p.full}</span>
-                <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{p.description}</p>
-              </GlassCard>
+                <div className="p-5 flex-1 flex flex-col">
+                  <Quote className="w-5 h-5 text-primary mb-3" />
+                  <p className="text-sm text-foreground leading-relaxed">"{q.quote}"</p>
+                  <p className="mt-4 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">— {q.name}</p>
+                </div>
+              </div>
             </RevealItem>
           ))}
         </RevealGroup>
@@ -451,92 +581,84 @@ function PartnersBlock() {
   );
 }
 
-function MobileApp() {
+/* ============================================================
+   BLOG STRIP
+   ============================================================ */
+function BlogStrip() {
+  const posts = [
+    { title: "Turning data into strategy: the power of analytics", img: svcManaged, href: "/articles" },
+    { title: "5 ways infrastructure can streamline operations",   img: svcCloud,   href: "/articles" },
+    { title: "Human × Machine: finding the perfect balance",      img: svcStorage, href: "/articles" },
+  ];
   return (
-    <section className="relative section-padding bg-dark overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute right-0 top-0 w-[600px] h-[600px] opacity-50"
-        style={{ background: "radial-gradient(closest-side, hsl(var(--primary) / 0.35), transparent 70%)" }}
-      />
-      <GridBackdrop variant="lines" className="opacity-30" />
-      <div className="relative container-wide">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal>
-            <Eyebrow>
-              <Smartphone className="w-3.5 h-3.5" /> mySmartApp
-            </Eyebrow>
-            <h2 className="font-display mt-5 text-display-lg text-dark-foreground">
-              Your network, in your pocket.
-            </h2>
-            <p className="mt-6 text-dark-foreground/70 leading-relaxed max-w-lg">
-              Monitor network status, view billing, raise tickets and manage every Smart Infraco service from a single mobile app — engineered for speed and clarity.
+    <section className="bg-muted/40 pb-16 lg:pb-20">
+      <div className="container-wide">
+        <Reveal className="flex items-end justify-between flex-wrap gap-4 mb-10">
+          <div>
+            <Eyebrow tone="muted">Blog &amp; Articles</Eyebrow>
+            <h2 className="font-display mt-5 text-display-lg text-foreground">Latest insights and trends</h2>
+            <p className="mt-3 text-muted-foreground max-w-xl text-sm">
+              Whether you're optimising today or building for tomorrow, we help you move faster with confidence.
             </p>
-            <ul className="mt-8 space-y-3 max-w-md">
-              {[
-                "Real-time network status monitoring",
-                "View & pay invoices",
-                "Raise and track support tickets",
-                "Service usage analytics",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-dark-foreground/85 py-2 border-b border-hairline">
-                  <span className="w-1 h-1 rounded-full bg-secondary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer"
-                 className="group inline-flex items-center gap-3 px-5 py-3 glass hover:border-secondary/40 transition-colors">
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-dark-foreground" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                <span className="text-left leading-tight">
-                  <span className="block text-[10px] text-dark-foreground/60">Download on the</span>
-                  <span className="block text-sm font-semibold text-dark-foreground">App Store</span>
-                </span>
-              </a>
-              <a href="https://play.google.com" target="_blank" rel="noopener noreferrer"
-                 className="group inline-flex items-center gap-3 px-5 py-3 glass hover:border-secondary/40 transition-colors">
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-dark-foreground" fill="currentColor"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.56.69.56 1.19s-.22.92-.56 1.19l-1.97 1.13-2.5-2.5 2.5-2.5 1.97 1.13zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
-                <span className="text-left leading-tight">
-                  <span className="block text-[10px] text-dark-foreground/60">Get it on</span>
-                  <span className="block text-sm font-semibold text-dark-foreground">Google Play</span>
-                </span>
-              </a>
-            </div>
-          </Reveal>
+          </div>
+          <Link to="/articles" className="inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] bg-secondary text-secondary-foreground rounded-full">
+            View all
+            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-primary text-primary-foreground">
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+        </Reveal>
 
-          <Reveal delay={0.15} className="flex justify-center lg:justify-end">
-            <motion.img
-              src={appMockup}
-              alt="mySmartApp mobile application"
-              className="w-72 lg:w-[22rem] drop-shadow-2xl"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </Reveal>
-        </div>
+        <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {posts.map((p) => (
+            <RevealItem key={p.title}>
+              <Link to={p.href} className="group block rounded-3xl overflow-hidden relative aspect-[4/3]">
+                <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <h3 className="font-display text-lg lg:text-xl font-semibold text-white leading-tight">{p.title}</h3>
+                </div>
+              </Link>
+            </RevealItem>
+          ))}
+        </RevealGroup>
       </div>
     </section>
   );
 }
 
-function CtaBand() {
+/* ============================================================
+   CTA SKY PANEL
+   ============================================================ */
+function CtaPanel() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-aurora" />
-      <GridBackdrop variant="lines" className="opacity-40" />
-      <div className="relative container-wide section-padding-sm text-center">
+    <section className="pb-16 lg:pb-24 bg-muted/40">
+      <div className="container-wide">
         <Reveal>
-          <Eyebrow tone="accent">Ready when you are</Eyebrow>
-          <h2 className="font-display mt-5 text-display-xl text-primary-foreground max-w-3xl mx-auto">
-            Let's engineer your next layer of infrastructure.
-          </h2>
-          <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl mx-auto">
-            Connect with our team to map out a network, cloud or data centre footprint built for your scale.
-          </p>
-          <div className="mt-10 flex justify-center gap-4">
-            <MagneticButton to="/contact" variant="accent">Start a conversation</MagneticButton>
-            <MagneticButton to="/about" variant="ghost">About Smart Infraco</MagneticButton>
+          <div className="relative rounded-[2rem] overflow-hidden p-10 lg:p-16 min-h-[300px] lg:min-h-[360px]">
+            <img src={ctaSky} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
+            <div className="relative max-w-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">Trusted by 1,500+</span>
+                <div className="flex -space-x-1.5">
+                  {["A", "K", "T"].map((c, i) => (
+                    <span key={i} className="w-6 h-6 rounded-full border-2 border-white text-[10px] font-semibold flex items-center justify-center text-white"
+                          style={{ background: `hsl(${[206, 75, 225][i]} 60% 50%)` }}>{c}</span>
+                  ))}
+                </div>
+              </div>
+              <h2 className="font-display text-display-lg text-foreground">
+                <span className="block font-semibold">We combine national reach</span>
+                <span className="block font-light italic">with intelligent infrastructure.</span>
+              </h2>
+              <p className="mt-5 text-sm lg:text-base text-foreground/75 max-w-md">
+                Our consultancy team brings deep network engineering, security and operations expertise — designed to support your scale.
+              </p>
+              <div className="mt-7">
+                <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>
@@ -544,21 +666,21 @@ function CtaBand() {
   );
 }
 
-/* ---------------- Page ---------------- */
-
+/* ============================================================
+   PAGE
+   ============================================================ */
 export default function HomePage() {
   return (
     <Layout>
       <Hero />
-      <TrustStrip />
-      <ServicesBento />
-      <NetworkSection />
-      <StatsBand />
-      <WhyUs />
-      <IndustriesBlock />
-      <PartnersBlock />
-      <MobileApp />
-      <CtaBand />
+      <LogoStrip />
+      <AboutBento />
+      <ServicesThree />
+      <ExpertiseGrid />
+      <PricingTiers />
+      <Testimonials />
+      <BlogStrip />
+      <CtaPanel />
     </Layout>
   );
 }

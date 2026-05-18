@@ -90,7 +90,7 @@
 
   body {
     @apply text-foreground font-sans antialiased;
-    background: var(--gradient-sky) fixed;
+    background: hsl(210 30% 97%);
     font-feature-settings: "ss01", "cv11";
   }
 
