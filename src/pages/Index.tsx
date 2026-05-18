@@ -640,7 +640,7 @@ function CtaPanel() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
             <div className="relative max-w-xl">
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">Trusted by 1,500+</span>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">Trusted by 300+ customers</span>
                 <div className="flex -space-x-1.5">
                   {["A", "K", "T"].map((c, i) => (
                     <span key={i} className="w-6 h-6 rounded-full border-2 border-white text-[10px] font-semibold flex items-center justify-center text-white"
