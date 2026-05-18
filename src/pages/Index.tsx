@@ -17,6 +17,7 @@ import SectionDivider from "@/components/ui-system/SectionDivider";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
 import appMockup from "@/assets/app-mockup.png";
 import heroDatacenter from "@/assets/hero-datacenter.jpg";
+import servicesBg from "@/assets/services-bg.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -203,18 +204,27 @@ function TrustStrip() {
 
 function ServicesBento() {
   return (
-    <section className="relative section-padding bg-background overflow-hidden">
-      <GridBackdrop variant="dots" className="opacity-50" />
+    <section className="relative section-padding bg-dark overflow-hidden">
+      <img
+        src={servicesBg}
+        alt=""
+        width={1920}
+        height={1080}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover opacity-40"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/85 to-dark" />
+      <GridBackdrop variant="dots" className="opacity-30" />
       <div className="relative container-wide">
         <div className="grid lg:grid-cols-12 gap-6 mb-14 items-end">
           <Reveal className="lg:col-span-7">
             <Eyebrow>Core Services</Eyebrow>
-            <h2 className="font-display mt-5 text-display-lg text-foreground">
+            <h2 className="font-display mt-5 text-display-lg text-dark-foreground">
               A unified stack for the modern enterprise.
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="text-base text-muted-foreground max-w-md lg:ml-auto leading-relaxed">
+            <p className="text-base text-dark-foreground/70 max-w-md lg:ml-auto leading-relaxed">
               Every layer engineered to interlock — connectivity, compute, storage and security under a single operator with national reach.
             </p>
           </Reveal>
