@@ -110,7 +110,7 @@ function Hero() {
           className="mt-12 text-center"
         >
           <p className="text-xs uppercase tracking-[0.22em] text-white/80">
-            Trusted by 1,500+ institutions across Ghana
+            300+ customers · 1,000 km of national fibre
           </p>
           <div className="mt-2 flex justify-center gap-1 text-amber-400">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -188,10 +188,10 @@ function AboutBento() {
               </div>
               <div>
                 <div className="font-display text-6xl font-semibold tabular-nums">
-                  <AnimatedCounter to={1500} suffix="+" />
+                  <AnimatedCounter to={300} suffix="+" />
                 </div>
                 <p className="mt-3 text-sm text-white/80">
-                  Institutions served across Ghana — from government MDAs to leading enterprises and telecom providers.
+                  Customers served across Ghana — backed by 1,000 km of owned national fibre reaching every region.
                 </p>
               </div>
             </div>
@@ -640,7 +640,7 @@ function CtaPanel() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
             <div className="relative max-w-xl">
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">Trusted by 1,500+</span>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">Trusted by 300+ customers</span>
                 <div className="flex -space-x-1.5">
                   {["A", "K", "T"].map((c, i) => (
                     <span key={i} className="w-6 h-6 rounded-full border-2 border-white text-[10px] font-semibold flex items-center justify-center text-white"
