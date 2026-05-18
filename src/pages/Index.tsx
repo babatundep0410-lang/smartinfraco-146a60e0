@@ -360,20 +360,20 @@ function ExpertiseGrid() {
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
                 <div className="absolute left-6 top-2 w-52 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">Expertise <span className="text-primary">●</span> that combines</div>
-                  <div className="mt-1 text-xs">Strategy, Data, and Operations Intelligence</div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">Uptime <span className="text-primary">●</span> guaranteed</div>
+                  <div className="mt-1 text-xs">Carrier-grade reliability &amp; secure-by-design network</div>
                 </div>
                 <div className="absolute right-6 bottom-0 w-48 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Intelligence in every decision</div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">99.99% availability</div>
                   <svg viewBox="0 0 100 40" className="mt-2 w-full h-10">
                     <polyline points="0,30 20,22 40,26 60,12 80,18 100,6" fill="none" stroke="hsl(75 100% 50%)" strokeWidth="2" />
                     <polyline points="0,35 20,30 40,32 60,24 80,28 100,18" fill="none" stroke="hsl(206 70% 50%)" strokeWidth="2" />
                   </svg>
                 </div>
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Data analytics &amp; insights</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Reliability and security</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Transform raw telemetry into strategic insight using advanced analytics, dashboards and predictive modelling.
+                Resilient, redundant and secure infrastructure — engineered to keep your services online and your data protected, 24/7.
               </p>
             </div>
           </RevealItem>
