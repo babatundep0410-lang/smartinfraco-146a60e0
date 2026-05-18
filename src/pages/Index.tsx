@@ -84,9 +84,6 @@ function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left — narrative */}
           <div className="lg:col-span-7 max-w-3xl">
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }}>
-              <Eyebrow tone="accent">Ghana's Digital Backbone</Eyebrow>
-            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
