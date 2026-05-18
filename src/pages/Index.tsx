@@ -22,6 +22,10 @@ import whySingleWindow from "@/assets/why-single-window.jpg";
 import whyReliability from "@/assets/why-reliability.jpg";
 import whyScale from "@/assets/why-scale.jpg";
 import whyEnterprise from "@/assets/why-enterprise.jpg";
+import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
+import testimonial4 from "@/assets/testimonial-4.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
