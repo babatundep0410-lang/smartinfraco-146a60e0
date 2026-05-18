@@ -110,7 +110,7 @@ function Hero() {
           className="mt-12 text-center"
         >
           <p className="text-xs uppercase tracking-[0.22em] text-white/80">
-            Trusted by 1,500+ institutions across Ghana
+            300+ customers · 1,000 km of national fibre
           </p>
           <div className="mt-2 flex justify-center gap-1 text-amber-400">
             {Array.from({ length: 5 }).map((_, i) => (
