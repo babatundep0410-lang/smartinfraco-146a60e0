@@ -383,23 +383,23 @@ function ExpertiseGrid() {
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
                 <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">Performance</div>
-                  <div className="mt-1 font-display text-3xl font-semibold">49% <span className="text-xs font-normal text-primary">↑</span></div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">National fibre</div>
+                  <div className="mt-1 font-display text-3xl font-semibold">1,000<span className="text-xs font-normal text-primary"> km</span></div>
                   <div className="mt-2 flex gap-1 text-[9px] text-white/60">
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Strategy</span>
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Insight</span>
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Scale</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Metro</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Long-haul</span>
+                    <span className="px-1.5 py-0.5 rounded bg-white/10">Subsea</span>
                   </div>
                 </div>
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Digital transformation</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Unrivalled scale and network reach</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                We help organisations modernise full-stack digital evolution — modernising systems, processes and decision-making frameworks.
+                Owned national fibre, towers and data centres — extending your reach into every region of Ghana and beyond.
               </p>
             </div>
           </RevealItem>
 
-          {/* Card 4 — Experience intelligence */}
+          {/* Card 4 — Enterprise-grade services */}
           <RevealItem>
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
@@ -410,15 +410,15 @@ function ExpertiseGrid() {
                   <div key={side} className="absolute top-12 w-28 rounded-lg bg-white border border-border p-2 shadow-card" style={{ [side < 0 ? "left" : "right"]: "1.5rem" }}>
                     <div className="flex items-center gap-1.5">
                       <span className="w-4 h-4 rounded-full bg-primary/30" />
-                      <span className="text-[9px] text-muted-foreground">Insight #{side < 0 ? "01" : "02"}</span>
+                      <span className="text-[9px] text-muted-foreground">SLA #{side < 0 ? "01" : "02"}</span>
                     </div>
                     <div className="mt-1 h-1 w-2/3 rounded bg-muted" />
                   </div>
                 ))}
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Experience intelligence</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">Enterprise-grade services</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Combine data, design and engineering to deliver digital experiences that connect with users at every touchpoint.
+                Backed by strict SLAs, 24/7 NOC support and a dedicated account team — the standard of service enterprises and CSPs demand.
               </p>
             </div>
           </RevealItem>
