@@ -482,10 +482,10 @@ function IndustriesWeServe() {
    ============================================================ */
 function Testimonials() {
   const quotes = [
-    { name: "Director, MDA Ghana", quote: "They brought clarity to complex problems, breaking down barriers and delivering innovative solutions." },
-    { name: "Head of IT, National Bank", quote: "They insight resolved difficult hurdles, opening new paths and creating highly effective strategies." },
-    { name: "CTO, Telecom Provider",  quote: "We found focus for tricky requirements, cutting through noise and providing truly advanced responses." },
-    { name: "COO, Energy Sector",     quote: "They gave a simple path to fix capability, removing all delays while building fresh brilliant projects." },
+    { name: "Kwame Mensah", role: "Director, MDA Ghana", img: testimonial1, quote: "They brought clarity to complex problems, breaking down barriers and delivering innovative solutions." },
+    { name: "Ama Boateng", role: "Head of IT, National Bank", img: testimonial2, quote: "Their insight resolved difficult hurdles, opening new paths and creating highly effective strategies." },
+    { name: "Kojo Asare", role: "CTO, Telecom Provider", img: testimonial3, quote: "We found focus for tricky requirements, cutting through noise and providing truly advanced responses." },
+    { name: "Akosua Owusu", role: "COO, Energy Sector", img: testimonial4, quote: "They gave a simple path to fix capability, removing all delays while building fresh brilliant projects." },
   ];
   return (
     <section className="bg-muted/40 section-padding-sm">
@@ -512,9 +512,21 @@ function Testimonials() {
           {quotes.map((q, i) => (
             <RevealItem key={i}>
               <div className="rounded-3xl bg-white border border-border overflow-hidden h-full flex flex-col">
-                <div className="relative aspect-square overflow-hidden bg-secondary flex items-center justify-center">
-                  <span className="font-display text-7xl font-semibold text-white/15">{q.name[0]}</span>
-                  <div className="absolute inset-0 grid-backdrop opacity-30" />
+                <div className="relative aspect-square overflow-hidden">
+                  <img
+                    src={q.img}
+                    alt={q.name}
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <Quote className="w-5 h-5 text-primary mb-3" />
+                  <p className="text-sm text-foreground leading-relaxed">"{q.quote}"</p>
+                  <p className="mt-4 font-display text-sm font-semibold text-foreground">{q.name}</p>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{q.role}</p>
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <Quote className="w-5 h-5 text-primary mb-3" />
