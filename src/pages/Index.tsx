@@ -330,8 +330,8 @@ function ExpertiseGrid() {
             <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
               <div className="relative h-44 flex items-center justify-center mb-8">
                 <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">Performance</div>
-                  <div className="mt-1 font-display text-2xl font-semibold">50+ <span className="text-xs font-normal text-primary">↑ 14%</span></div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/60">One portal</div>
+                  <div className="mt-1 font-display text-2xl font-semibold">1 <span className="text-xs font-normal text-primary">window</span></div>
                   <div className="mt-2 space-y-1">
                     {[60, 40, 80].map((w, i) => (
                       <div key={i} className="h-1 rounded-full bg-white/20"><div className="h-full rounded-full bg-primary" style={{ width: `${w}%` }} /></div>
@@ -339,8 +339,8 @@ function ExpertiseGrid() {
                   </div>
                 </div>
                 <div className="absolute right-6 bottom-0 w-44 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Throughput</div>
-                  <div className="mt-1 font-display text-xl font-semibold text-foreground">$4,900 <span className="text-[10px] font-normal text-muted-foreground">/ $10,000</span></div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Continental reach</div>
+                  <div className="mt-1 font-display text-xl font-semibold text-foreground">Pan-African <span className="text-[10px] font-normal text-muted-foreground">coverage</span></div>
                   <div className="mt-2 grid grid-cols-2 gap-1">
                     {Array.from({ length: 6 }).map((_, i) => (
                       <div key={i} className="h-1.5 rounded-full bg-muted" />
@@ -348,9 +348,9 @@ function ExpertiseGrid() {
                   </div>
                 </div>
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Automation &amp; orchestration</h3>
+              <h3 className="font-display text-2xl font-semibold text-foreground">A single window interface</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Streamline operations with intelligent workflow automation — reducing errors and boosting productivity across every layer of the stack.
+                One provider, one contract, one portal — helping you gain cost efficiencies and extended reach across the continent.
               </p>
             </div>
           </RevealItem>
