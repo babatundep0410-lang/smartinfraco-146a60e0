@@ -528,11 +528,6 @@ function Testimonials() {
                   <p className="mt-4 font-display text-sm font-semibold text-foreground">{q.name}</p>
                   <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{q.role}</p>
                 </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <Quote className="w-5 h-5 text-primary mb-3" />
-                  <p className="text-sm text-foreground leading-relaxed">"{q.quote}"</p>
-                  <p className="mt-4 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">— {q.name}</p>
-                </div>
               </div>
             </RevealItem>
           ))}
