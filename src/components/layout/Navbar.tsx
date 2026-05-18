@@ -53,23 +53,26 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        scrolled ? "bg-background/70 backdrop-blur-xl border-b border-hairline" : "bg-transparent border-b border-transparent"
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "rounded-full",
+        scrolled
+          ? "bg-white/80 backdrop-blur-xl shadow-card border border-white/60"
+          : "bg-white/15 backdrop-blur-md border border-white/30"
       )}
+      style={{ width: "min(96vw, 1280px)" }}
     >
       {/* scroll progress hairline */}
       <motion.div
-        className="absolute left-0 right-0 bottom-0 h-px origin-left bg-gradient-to-r from-primary via-secondary to-primary"
+        className="absolute left-4 right-4 bottom-0 h-px origin-left bg-primary/70 rounded-full"
         style={{ scaleX: progress }}
       />
 
-      <div className="container-bleed flex items-center justify-between h-16 lg:h-[72px]">
+      <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-6">
         {/* Logo lockup */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <img src={logo} alt="Smart Infraco" className="h-9 lg:h-10 w-auto" />
+        <Link to="/" className="flex items-center gap-2 group">
+          <img src={logo} alt="Smart Infraco" className="h-8 lg:h-9 w-auto" />
           <span className="hidden sm:flex flex-col leading-none">
-            <span className="text-[13px] font-semibold tracking-tight text-foreground">Smart Infraco</span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Ghana · Continental</span>
+            <span className={cn("text-[13px] font-semibold tracking-tight", scrolled ? "text-foreground" : "text-white")}>Smart Infraco</span>
           </span>
         </Link>
 
@@ -85,8 +88,10 @@ export default function Navbar() {
               >
                 <button
                   className={cn(
-                    "flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium transition-colors",
-                    isGroupActive(link.children) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    "flex items-center gap-1 px-3.5 py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors rounded-full",
+                    scrolled
+                      ? (isGroupActive(link.children) ? "text-foreground" : "text-foreground/70 hover:text-foreground")
+                      : (isGroupActive(link.children) ? "text-white" : "text-white/80 hover:text-white")
                   )}
                 >
                   {link.label}
@@ -99,19 +104,19 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute top-full left-0 mt-2 w-[420px] glass shadow-[var(--shadow-elevated)] p-2"
+                      className="absolute top-full left-0 mt-3 w-[420px] bg-white rounded-3xl shadow-elevated border border-border p-2"
                     >
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           to={child.href}
                           className={cn(
-                            "group flex items-start justify-between gap-4 px-4 py-3 transition-colors",
-                            isActive(child.href) ? "bg-primary/15 text-foreground" : "hover:bg-foreground/5"
+                            "group flex items-start justify-between gap-4 px-4 py-3 rounded-2xl transition-colors",
+                            isActive(child.href) ? "bg-primary/15 text-foreground" : "hover:bg-muted"
                           )}
                         >
                           <div>
-                            <div className="text-sm font-medium text-foreground">{child.label}</div>
+                            <div className="text-sm font-semibold text-foreground">{child.label}</div>
                             <div className="text-xs text-muted-foreground mt-0.5">{child.desc}</div>
                           </div>
                           <ArrowUpRight className="w-4 h-4 text-muted-foreground opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
@@ -126,8 +131,10 @@ export default function Navbar() {
                 key={link.label}
                 to={link.href}
                 className={cn(
-                  "px-3.5 py-2 text-[13px] font-medium transition-colors story-link",
-                  isActive(link.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  "px-3.5 py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors rounded-full",
+                  scrolled
+                    ? (isActive(link.href) ? "text-foreground" : "text-foreground/70 hover:text-foreground")
+                    : (isActive(link.href) ? "text-white" : "text-white/80 hover:text-white")
                 )}
               >
                 {link.label}
@@ -138,22 +145,20 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
-          <span className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-            <span className="pulse-dot" />
-            All systems operational
-          </span>
           <Link
             to="/contact"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="group inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] bg-primary text-primary-foreground rounded-full hover:brightness-105 transition-all"
           >
             Get in Touch
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-secondary-foreground transition-transform duration-500 group-hover:rotate-45">
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </span>
           </Link>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 text-foreground"
+          className={cn("lg:hidden p-2", scrolled ? "text-foreground" : "text-white")}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -169,9 +174,9 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-hairline"
+            className="lg:hidden overflow-hidden bg-white rounded-3xl mt-2 mx-2 border border-border"
           >
-            <div className="container-wide py-5 space-y-1">
+            <div className="px-5 py-5 space-y-1">
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.label}
@@ -201,7 +206,7 @@ export default function Navbar() {
                       onClick={() => setMobileOpen(false)}
                       className={cn(
                         "block px-1 py-2.5 text-base font-medium",
-                        isActive(link.href) ? "text-primary" : "text-foreground"
+                        isActive(link.href) ? "text-primary-foreground bg-primary rounded-full px-4" : "text-foreground"
                       )}
                     >
                       {link.label}
@@ -212,7 +217,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="block mx-1 mt-4 text-center px-5 py-3 text-sm font-semibold bg-primary text-primary-foreground"
+                className="block mx-1 mt-4 text-center px-5 py-3 text-sm font-semibold bg-primary text-primary-foreground rounded-full"
               >
                 Get in Touch
               </Link>
