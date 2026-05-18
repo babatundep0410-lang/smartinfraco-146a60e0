@@ -594,25 +594,27 @@ function CtaPanel() {
           <div className="relative overflow-hidden p-10 lg:p-16 min-h-[300px] lg:min-h-[360px]">
             <img src={ctaSky} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
-            <div className="relative max-w-xl">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">Trusted by 300+ customers</span>
-                <div className="flex -space-x-1.5">
-                  {["A", "K", "T"].map((c, i) => (
-                    <span key={i} className="w-6 h-6 rounded-full border-2 border-white text-[10px] font-semibold flex items-center justify-center text-white"
-                          style={{ background: `hsl(${[206, 75, 225][i]} 60% 50%)` }}>{c}</span>
-                  ))}
+            <div className="container-wide relative">
+              <div className="max-w-xl">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">Trusted by 300+ customers</span>
+                  <div className="flex -space-x-1.5">
+                    {["A", "K", "T"].map((c, i) => (
+                      <span key={i} className="w-6 h-6 rounded-full border-2 border-white text-[10px] font-semibold flex items-center justify-center text-white"
+                            style={{ background: `hsl(${[206, 75, 225][i]} 60% 50%)` }}>{c}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <h2 className="font-display text-display-lg text-foreground">
-                <span className="block font-semibold">We combine national reach</span>
-                <span className="block font-light italic">with intelligent infrastructure.</span>
-              </h2>
-              <p className="mt-5 text-sm lg:text-base text-foreground/75 max-w-md">
-                Our consultancy team brings deep network engineering, security and operations expertise — designed to support your scale.
-              </p>
-              <div className="mt-7">
-                <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
+                <h2 className="font-display text-display-lg text-foreground">
+                  <span className="block font-semibold">We combine national reach</span>
+                  <span className="block font-light italic">with intelligent infrastructure.</span>
+                </h2>
+                <p className="mt-5 text-sm lg:text-base text-foreground/75 max-w-md">
+                  Our consultancy team brings deep network engineering, security and operations expertise — designed to support your scale.
+                </p>
+                <div className="mt-7">
+                  <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
+                </div>
               </div>
             </div>
           </div>
