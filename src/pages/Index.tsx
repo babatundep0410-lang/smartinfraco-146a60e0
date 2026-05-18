@@ -315,12 +315,12 @@ function ExpertiseGrid() {
     <section className="bg-muted/40 section-padding-sm">
       <div className="container-wide">
         <Reveal className="text-center max-w-2xl mx-auto">
-          <Eyebrow tone="muted">Expertise</Eyebrow>
+          <Eyebrow tone="muted">Why Smart Infraco</Eyebrow>
           <h2 className="font-display mt-5 text-display-lg text-foreground">
-            Where engineering meets operational excellence.
+            Strength, resource, capacity — the partner of choice for CSPs in Ghana.
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Real-time monitoring, automation and analytics — built into every service we operate.
+            One trusted infrastructure partner — built for reliability, scale and enterprise performance across the nation.
           </p>
         </Reveal>
 
