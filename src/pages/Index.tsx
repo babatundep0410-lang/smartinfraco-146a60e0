@@ -219,12 +219,12 @@ function ServicesBento() {
         <div className="grid lg:grid-cols-12 gap-6 mb-14 items-end">
           <Reveal className="lg:col-span-7">
             <Eyebrow>Core Services</Eyebrow>
-            <h2 className="font-display mt-5 text-display-lg text-foreground">
+            <h2 className="font-display mt-5 text-display-lg text-dark-foreground">
               A unified stack for the modern enterprise.
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="text-base text-muted-foreground max-w-md lg:ml-auto leading-relaxed">
+            <p className="text-base text-dark-foreground/70 max-w-md lg:ml-auto leading-relaxed">
               Every layer engineered to interlock — connectivity, compute, storage and security under a single operator with national reach.
             </p>
           </Reveal>
