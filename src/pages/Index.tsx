@@ -70,35 +70,35 @@ function Hero() {
           </motion.div>
         </div>
 
-        {/* fanned card arc */}
+        {/* infinite scrolling card marquee with arched tilt */}
         <motion.div
           initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease, delay: 0.5 }}
-          className="relative mt-20 lg:mt-28 h-[260px] lg:h-[300px]"
-          style={{ perspective: "1400px" }}
+          className="relative mt-20 lg:mt-28 h-[260px] lg:h-[300px] overflow-hidden"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+          }}
         >
-          <div className="absolute inset-x-0 top-0 flex items-end justify-center gap-3 lg:gap-4">
-            {fanCards.map((c, i) => {
+          <div className="flex gap-3 lg:gap-4 animate-marquee w-max items-end pt-6">
+            {[...fanCards, ...fanCards, ...fanCards].map((c, i) => {
+              const localIdx = i % fanCards.length;
               const mid = (fanCards.length - 1) / 2;
-              const offset = i - mid;
-              const rotate = offset * 8;
-              const translateY = Math.abs(offset) * 18;
+              const offset = localIdx - mid;
+              const rotate = offset * 6;
+              const translateY = Math.abs(offset) * 12;
               return (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: translateY, rotate }}
-                  transition={{ duration: 0.9, ease, delay: 0.6 + i * 0.06 }}
-                  whileHover={{ y: translateY - 14, scale: 1.04 }}
-                  className="relative shrink-0 w-[110px] h-[150px] lg:w-[150px] lg:h-[210px] rounded-2xl overflow-hidden bg-white shadow-elevated border border-white/40"
-                  style={{ transformOrigin: "bottom center" }}
+                  style={{ transform: `translateY(${translateY}px) rotate(${rotate}deg)`, transformOrigin: "bottom center" }}
+                  className="relative shrink-0 w-[110px] h-[150px] lg:w-[150px] lg:h-[210px] rounded-2xl overflow-hidden bg-white shadow-elevated border border-white/40 transition-transform duration-500 hover:-translate-y-3"
                 >
                   <img src={c.img} alt={c.label} className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                   <span className="absolute bottom-2 left-2 right-2 text-[10px] lg:text-[11px] font-semibold text-white text-center leading-tight uppercase tracking-wider">
                     {c.label}
                   </span>
-                </motion.div>
+                </div>
               );
             })}
           </div>
