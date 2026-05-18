@@ -18,6 +18,10 @@ import svcDatacenter from "@/assets/service-datacenter.jpg";
 import svcCloud from "@/assets/service-cloud.jpg";
 import svcStorage from "@/assets/service-storage.jpg";
 import svcManaged from "@/assets/service-managed.jpg";
+import whySingleWindow from "@/assets/why-single-window.jpg";
+import whyReliability from "@/assets/why-reliability.jpg";
+import whyScale from "@/assets/why-scale.jpg";
+import whyEnterprise from "@/assets/why-enterprise.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
