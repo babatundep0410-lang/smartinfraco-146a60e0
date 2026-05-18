@@ -237,7 +237,7 @@ function AboutBento() {
               </div>
               <div>
                 <div className="font-display text-6xl font-semibold tabular-nums">
-                  <AnimatedCounter to={1010} suffix="" /> km
+                  <AnimatedCounter to={1000} suffix="+" /> km
                 </div>
                 <p className="mt-3 text-sm text-primary-foreground/80">
                   National fibre backbone reaching every region — engineered for sub-millisecond intra-Ghana latency.
