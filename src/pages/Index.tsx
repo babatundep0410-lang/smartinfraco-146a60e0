@@ -112,7 +112,7 @@ function Hero() {
           <p className="text-xs uppercase tracking-[0.22em] text-white/80">
             Trusted by 1,500+ institutions across Ghana
           </p>
-          <div className="mt-2 flex justify-center gap-1 text-primary">
+          <div className="mt-2 flex justify-center gap-1 text-amber-400">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-current" />
             ))}
