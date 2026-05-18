@@ -246,16 +246,32 @@ function AboutBento() {
             </div>
           </RevealItem>
 
-          {/* black wide counter */}
-          <RevealItem className="md:col-span-12">
-            <div className="relative rounded-3xl bg-secondary text-secondary-foreground p-7 flex items-center justify-between gap-6 flex-wrap">
+          {/* PoPs card */}
+          <RevealItem className="md:col-span-6">
+            <div className="relative h-full rounded-3xl bg-secondary text-secondary-foreground p-7 flex items-center justify-between gap-6 flex-wrap min-h-[180px]">
               <div>
                 <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary-foreground/60">Active connections</div>
                 <div className="mt-2 font-display text-4xl lg:text-5xl font-semibold">
                   <AnimatedCounter to={48} suffix="+" /> PoPs
-                  <span className="text-secondary-foreground/40 mx-3">·</span>
-                  Two data centres <span className="text-secondary-foreground/70">(Tier II &amp; Tier III)</span>
                 </div>
+                <p className="mt-3 text-sm text-secondary-foreground/70 max-w-sm">
+                  Points of presence distributed across Ghana for low-latency access.
+                </p>
+              </div>
+            </div>
+          </RevealItem>
+
+          {/* Data centres card */}
+          <RevealItem className="md:col-span-6">
+            <div className="relative h-full rounded-3xl bg-secondary text-secondary-foreground p-7 flex items-center justify-between gap-6 flex-wrap min-h-[180px]">
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary-foreground/60">Data centres</div>
+                <div className="mt-2 font-display text-4xl lg:text-5xl font-semibold">
+                  Two facilities
+                </div>
+                <p className="mt-3 text-sm text-secondary-foreground/70 max-w-sm">
+                  Tier II (Kumasi) &amp; Tier III (Accra) — Ghana's most modern colocation facilities.
+                </p>
               </div>
               <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-primary group">
                 More about us
