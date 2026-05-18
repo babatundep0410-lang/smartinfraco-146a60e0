@@ -252,7 +252,9 @@ function AboutBento() {
               <div>
                 <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary-foreground/60">Active connections</div>
                 <div className="mt-2 font-display text-4xl lg:text-5xl font-semibold">
-                  <AnimatedCounter to={48} suffix="+" /> PoPs · <AnimatedCounter to={2} /> Tier III & II data centres
+                  <AnimatedCounter to={48} suffix="+" /> PoPs
+                  <span className="text-secondary-foreground/40 mx-3">·</span>
+                  Two data centres <span className="text-secondary-foreground/70">(Tier II &amp; Tier III)</span>
                 </div>
               </div>
               <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-primary group">
