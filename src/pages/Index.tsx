@@ -589,9 +589,9 @@ function BlogStrip() {
 function CtaPanel() {
   return (
     <section className="pb-16 lg:pb-24 bg-muted/40">
-      <div className="container-wide">
+      <div className="w-full">
         <Reveal>
-          <div className="relative rounded-[2rem] overflow-hidden p-10 lg:p-16 min-h-[300px] lg:min-h-[360px]">
+          <div className="relative overflow-hidden p-10 lg:p-16 min-h-[300px] lg:min-h-[360px]">
             <img src={ctaSky} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
             <div className="relative max-w-xl">
