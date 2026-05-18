@@ -188,10 +188,10 @@ function AboutBento() {
               </div>
               <div>
                 <div className="font-display text-6xl font-semibold tabular-nums">
-                  <AnimatedCounter to={1500} suffix="+" />
+                  <AnimatedCounter to={300} suffix="+" />
                 </div>
                 <p className="mt-3 text-sm text-white/80">
-                  Institutions served across Ghana — from government MDAs to leading enterprises and telecom providers.
+                  Customers served across Ghana — backed by 1,000 km of owned national fibre reaching every region.
                 </p>
               </div>
             </div>
