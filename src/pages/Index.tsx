@@ -16,6 +16,7 @@ import MagneticButton from "@/components/ui-system/MagneticButton";
 import SectionDivider from "@/components/ui-system/SectionDivider";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
 import appMockup from "@/assets/app-mockup.png";
+import heroDatacenter from "@/assets/hero-datacenter.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -62,9 +63,16 @@ function Hero() {
   return (
     <section className="relative bg-dark overflow-hidden pt-28 lg:pt-32">
       {/* layered backdrops */}
-      <div className="absolute inset-0 bg-gradient-aurora opacity-90" />
-      <div className="absolute inset-0 bg-gradient-mesh" />
-      <GridBackdrop variant="lines" className="opacity-60" />
+      <img
+        src={heroDatacenter}
+        alt="Smart Infraco hyperscale data centre interior"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/85 to-dark/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/30 to-transparent" />
+      <GridBackdrop variant="lines" className="opacity-30" />
 
       <div className="relative container-bleed pt-12 pb-20 lg:pt-16 lg:pb-28">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
