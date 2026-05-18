@@ -379,32 +379,38 @@ function ExpertiseGrid() {
 /* ============================================================
    PRICING TIERS
    ============================================================ */
-function PricingTiers() {
-  const tiers = [
+function IndustriesWeServe() {
+  const industries = [
     {
-      name: "Standard",
-      icon: Wifi,
-      price: "$2,500",
-      unit: "/ month",
-      blurb: "Perfect for small teams beginning to explore IT and automation.",
-      features: ["Strategy consulting up to 10 hours", "Business process mapping", "Basic AI workflow setup", "Email support"],
+      name: "Government & Public Sector",
+      icon: Landmark,
+      blurb: "Powering Ghana's digital agenda with sovereign, secure infrastructure for ministries, agencies and e-government platforms.",
     },
     {
-      name: "Enterprise",
-      icon: Building2,
-      price: "$8,500",
-      unit: "/ month",
-      blurb: "Designed for growing companies ready to integrate AI into their operations.",
-      features: ["Dedicated consultant", "End-to-end automation setup", "Predictive analytics dashboards", "AI-driven reporting & insights"],
+      name: "Telecom & ISPs",
+      icon: Wifi,
+      blurb: "Wholesale fibre, dark fibre, IP transit and tower co-location — the backbone behind the country's carriers and service providers.",
       highlighted: true,
     },
     {
-      name: "National",
-      icon: Landmark,
-      price: "$10,500",
-      unit: "/ month",
-      blurb: "Custom-built for businesses seeking full-scale transformation and options.",
-      features: ["Tailored AI implementation roadmap", "Custom automation architecture", "Advanced data analytics", "24/7 premium support"],
+      name: "Financial Services",
+      icon: Building2,
+      blurb: "Low-latency connectivity, secure data centres and resilient links for banks, fintechs and payment networks.",
+    },
+    {
+      name: "Energy & Utilities",
+      icon: Zap,
+      blurb: "Mission-critical fibre, SCADA-grade links and remote-site connectivity to keep generation, transmission and distribution online.",
+    },
+    {
+      name: "Enterprise & SMEs",
+      icon: Server,
+      blurb: "Dedicated internet, cloud and managed services tailored to growing Ghanaian businesses across every sector.",
+    },
+    {
+      name: "Education & Health",
+      icon: Globe,
+      blurb: "High-capacity connectivity and cloud services that bring universities, schools and hospitals into the digital era.",
     },
   ];
 
@@ -412,60 +418,51 @@ function PricingTiers() {
     <section className="bg-muted/40 section-padding-sm">
       <div className="container-wide">
         <Reveal className="text-center max-w-2xl mx-auto">
-          <Eyebrow tone="muted">Pricing</Eyebrow>
+          <Eyebrow tone="muted">Industries we serve</Eyebrow>
           <h2 className="font-display mt-5 text-display-lg text-foreground">
-            Flexible engagement models for every stage of growth.
+            Trusted infrastructure for every sector driving Ghana forward.
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Whether you're a partner moving in journey or scaling enterprise-wide innovation, we offer tailored solutions that grow with you.
+            From government and telecoms to banking, energy and education — we deliver the connectivity and cloud foundations that critical industries rely on.
           </p>
           <div className="mt-8 flex justify-center">
-            <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
+            <MagneticButton to="/industries" variant="primary">Explore Industries</MagneticButton>
           </div>
         </Reveal>
 
-        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {tiers.map((t) => (
-            <RevealItem key={t.name}>
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {industries.map((ind) => (
+            <RevealItem key={ind.name}>
               <div
-                className={`relative h-full rounded-3xl p-7 lg:p-8 border ${
-                  t.highlighted
+                className={`group relative h-full rounded-3xl p-7 lg:p-8 border transition-shadow hover:shadow-elevated ${
+                  ind.highlighted
                     ? "bg-primary border-primary text-primary-foreground"
                     : "bg-white border-border text-foreground"
                 }`}
               >
-                <div className="flex items-center gap-2">
-                  <span className={`w-8 h-8 rounded-full flex items-center justify-center ${t.highlighted ? "bg-secondary text-primary" : "bg-muted text-foreground"}`}>
-                    <t.icon className="w-4 h-4" />
-                  </span>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em]">{t.name} Plan</span>
-                </div>
-
-                <div className="mt-8 flex items-baseline gap-1">
-                  <div className="font-display text-5xl font-semibold tabular-nums">{t.price}</div>
-                  <div className={`text-sm ${t.highlighted ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{t.unit}</div>
-                </div>
-                <p className={`mt-3 text-sm ${t.highlighted ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{t.blurb}</p>
-
-                <ul className="mt-6 space-y-3">
-                  {t.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
-                      <Check className={`w-4 h-4 mt-0.5 shrink-0 ${t.highlighted ? "text-primary-foreground" : "text-primary"}`} />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  to="/contact"
-                  className={`mt-8 inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] rounded-full ${
-                    t.highlighted ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"
+                <span
+                  className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${
+                    ind.highlighted ? "bg-secondary text-primary" : "bg-secondary text-primary"
                   }`}
                 >
-                  Get Started
-                  <span className={`flex items-center justify-center w-7 h-7 rounded-full ${t.highlighted ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
+                  <ind.icon className="w-5 h-5" />
+                </span>
+                <h3 className="font-display mt-6 text-2xl font-semibold">{ind.name}</h3>
+                <p
+                  className={`mt-3 text-sm leading-relaxed ${
+                    ind.highlighted ? "text-primary-foreground/85" : "text-muted-foreground"
+                  }`}
+                >
+                  {ind.blurb}
+                </p>
+                <Link
+                  to="/industries"
+                  className={`mt-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] ${
+                    ind.highlighted ? "text-primary-foreground" : "text-foreground"
+                  }`}
+                >
+                  Learn more
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </RevealItem>
