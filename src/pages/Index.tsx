@@ -16,7 +16,7 @@ import MagneticButton from "@/components/ui-system/MagneticButton";
 import SectionDivider from "@/components/ui-system/SectionDivider";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
 import appMockup from "@/assets/app-mockup.png";
-import heroDatacenter from "@/assets/hero-datacenter.jpg";
+import heroSky from "@/assets/hero-sky.jpg";
 import svcNetwork from "@/assets/service-network.jpg";
 import svcInternet from "@/assets/service-internet.jpg";
 import svcDatacenter from "@/assets/service-datacenter.jpg";
@@ -66,102 +66,117 @@ const sectorMarquee = [
 /* ---------------- Sections ---------------- */
 
 function Hero() {
+  // fanned card arc — uses existing service images for visual continuity
+  const fanCards = [
+    { img: svcNetwork,    label: "National Fibre" },
+    { img: svcInternet,   label: "100 Gbps DIA" },
+    { img: svcDatacenter, label: "Tier III Accra" },
+    { img: svcCloud,      label: "Hybrid Cloud" },
+    { img: svcStorage,    label: "Sovereign Storage" },
+    { img: svcManaged,    label: "24/7 NOC" },
+    { img: svcNetwork,    label: "Metro Rings" },
+  ];
+
   return (
-    <section className="relative bg-dark overflow-hidden pt-28 lg:pt-32">
-      {/* layered backdrops */}
+    <section className="relative overflow-hidden pt-28 lg:pt-32 min-h-[100vh]">
+      {/* sky background */}
       <img
-        src={heroDatacenter}
-        alt="Smart Infraco hyperscale data centre interior"
+        src={heroSky}
+        alt=""
         width={1920}
-        height={1080}
+        height={1088}
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/85 to-dark/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/30 to-transparent" />
-      <GridBackdrop variant="lines" className="opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
 
-      <div className="relative container-bleed pt-12 pb-20 lg:pt-16 lg:pb-28">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left — narrative */}
-          <div className="lg:col-span-7 max-w-3xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease, delay: 0.1 }}
-              className="font-display mt-6 text-display-2xl text-dark-foreground"
-            >
-              Infrastructure that{" "}
-              <span className="text-gradient-aurora">moves a nation</span>.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.25 }}
-              className="mt-7 text-lg lg:text-xl text-dark-foreground/75 max-w-xl leading-relaxed"
-            >
-              Secure, scalable national infrastructure for government and enterprise — fibre, data centres, cloud and cybersecurity in one trusted operator.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease, delay: 0.4 }}
-              className="mt-10 flex flex-wrap items-center gap-4"
-            >
-              <MagneticButton to="/connectivity" variant="primary">Explore Solutions</MagneticButton>
-              <MagneticButton to="/contact" variant="ghost">Speak to an Engineer</MagneticButton>
-            </motion.div>
-          </div>
-
-          {/* Right — live network panel */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, ease, delay: 0.3 }}
-            className="lg:col-span-5"
+      <div className="relative container-wide pt-16 lg:pt-24 pb-32 lg:pb-40">
+        {/* headline */}
+        <div className="text-center max-w-5xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease, delay: 0.1 }}
+            className="font-display text-display-2xl text-white"
           >
-            <GlassCard className="p-5 lg:p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  <span className="pulse-dot" />
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/80">Live Network</span>
-                </div>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Realtime</span>
-              </div>
+            <span className="block font-semibold">Building the future with</span>
+            <span className="block font-light italic text-white/85">fibre, cloud &amp; security</span>
+          </motion.h1>
 
-              <div className="relative aspect-[4/3] -mx-1">
-                <NetworkCanvas />
-              </div>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.25 }}
+            className="mt-8 text-base lg:text-lg text-white/85 max-w-xl mx-auto leading-relaxed"
+          >
+            Smart Infraco powers Ghana's digital backbone — secure, scalable
+            national infrastructure for government and enterprise.
+          </motion.p>
 
-              <div className="grid grid-cols-3 gap-3 mt-5 pt-5 border-t border-hairline">
-                {[
-                  { icon: Activity, label: "Uptime", value: <><AnimatedCounter to={99.99} decimals={2} />%</> },
-                  { icon: Radio,    label: "PoPs lit", value: <><AnimatedCounter to={48} />+</> },
-                  { icon: Zap,      label: "Throughput", value: <><AnimatedCounter to={1.2} decimals={1} /> Tbps</> },
-                ].map((m) => (
-                  <div key={m.label} className="flex flex-col">
-                    <m.icon className="w-3.5 h-3.5 text-secondary mb-1.5" />
-                    <span className="font-display text-base font-semibold text-foreground leading-none">{m.value}</span>
-                    <span className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground mt-1">{m.label}</span>
-                  </div>
-                ))}
-              </div>
-            </GlassCard>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.4 }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          >
+            <MagneticButton to="/connectivity" variant="dark">View Solutions</MagneticButton>
+            <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
           </motion.div>
         </div>
-      </div>
 
-      {/* scroll cue */}
-      <div className="relative pb-8 flex justify-center">
+        {/* fanned card arc */}
         <motion.div
-          aria-hidden
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ duration: 1, delay: 1, ease }}
-          className="w-px h-10 bg-gradient-to-b from-secondary/80 to-transparent origin-top"
-        />
-      </div>
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease, delay: 0.5 }}
+          className="relative mt-20 lg:mt-28 h-[260px] lg:h-[300px]"
+          style={{ perspective: "1400px" }}
+        >
+          <div className="absolute inset-x-0 top-0 flex items-end justify-center gap-3 lg:gap-4">
+            {fanCards.map((c, i) => {
+              const mid = (fanCards.length - 1) / 2;
+              const offset = i - mid;
+              const rotate = offset * 8;
+              const translateY = Math.abs(offset) * 18;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40, rotate: 0 }}
+                  animate={{ opacity: 1, y: translateY, rotate }}
+                  transition={{ duration: 0.9, ease, delay: 0.6 + i * 0.06 }}
+                  whileHover={{ y: translateY - 14, scale: 1.04 }}
+                  className="relative shrink-0 w-[110px] h-[150px] lg:w-[150px] lg:h-[210px] rounded-2xl overflow-hidden bg-white shadow-elevated border border-white/40"
+                  style={{ transformOrigin: "bottom center" }}
+                >
+                  <img src={c.img} alt={c.label} className="absolute inset-0 w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <span className="absolute bottom-2 left-2 right-2 text-[10px] lg:text-[11px] font-semibold text-white text-center leading-tight uppercase tracking-wider">
+                    {c.label}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
 
-      <SectionDivider />
+        {/* rating */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 1.4 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-xs uppercase tracking-[0.22em] text-white/80">
+            Trusted by 1,500+ institutions across Ghana
+          </p>
+          <div className="mt-2 flex justify-center gap-1 text-primary">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <svg key={i} viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                <path d="M12 .587l3.668 7.568L24 9.75l-6 5.853L19.336 24 12 19.897 4.664 24 6 15.603 0 9.75l8.332-1.595z" />
+              </svg>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
