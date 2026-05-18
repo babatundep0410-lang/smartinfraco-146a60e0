@@ -204,8 +204,17 @@ function TrustStrip() {
 
 function ServicesBento() {
   return (
-    <section className="relative section-padding bg-background overflow-hidden">
-      <GridBackdrop variant="dots" className="opacity-50" />
+    <section className="relative section-padding bg-dark overflow-hidden">
+      <img
+        src={servicesBg}
+        alt=""
+        width={1920}
+        height={1080}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover opacity-40"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/85 to-dark" />
+      <GridBackdrop variant="dots" className="opacity-30" />
       <div className="relative container-wide">
         <div className="grid lg:grid-cols-12 gap-6 mb-14 items-end">
           <Reveal className="lg:col-span-7">
