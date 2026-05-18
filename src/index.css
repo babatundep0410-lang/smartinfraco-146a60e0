@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 225 50% 12%;
 
-    --primary: 75 100% 64%;               /* lime green CTA */
+    --primary: 95 82% 55%;               /* lime green CTA */
     --primary-foreground: 225 60% 8%;     /* near-black text on lime */
 
     --secondary: 225 50% 10%;             /* dark pill */
@@ -25,7 +25,7 @@
     --muted: 210 30% 94%;
     --muted-foreground: 225 15% 38%;
 
-    --accent: 75 100% 64%;
+    --accent: 95 82% 55%;
     --accent-foreground: 225 60% 8%;
 
     --destructive: 0 84% 60%;
@@ -33,18 +33,18 @@
 
     --border: 210 30% 88%;
     --input: 210 30% 88%;
-    --ring: 75 100% 64%;
+    --ring: 95 82% 55%;
 
     --radius: 1.5rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 225 50% 12%;
-    --sidebar-primary: 75 100% 64%;
+    --sidebar-primary: 95 82% 55%;
     --sidebar-primary-foreground: 225 60% 8%;
     --sidebar-accent: 210 30% 94%;
     --sidebar-accent-foreground: 225 50% 12%;
     --sidebar-border: 210 30% 88%;
-    --sidebar-ring: 75 100% 64%;
+    --sidebar-ring: 95 82% 55%;
 
     /* Brand surfaces (additive) */
     --dark: 225 50% 8%;
@@ -70,8 +70,8 @@
     /* Shadows & glows */
     --shadow-card: 0 14px 40px -16px hsl(225 50% 20% / 0.25);
     --shadow-elevated: 0 30px 80px -24px hsl(225 50% 15% / 0.35);
-    --glow-primary: 0 0 50px -10px hsl(75 100% 64% / 0.55);
-    --glow-accent: 0 0 50px -10px hsl(75 100% 64% / 0.55);
+    --glow-primary: 0 0 50px -10px hsl(95 82% 55% / 0.55);
+    --glow-accent: 0 0 50px -10px hsl(95 82% 55% / 0.55);
 
     /* Motion */
     --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
