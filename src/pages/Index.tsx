@@ -18,6 +18,10 @@ import svcDatacenter from "@/assets/service-datacenter.jpg";
 import svcCloud from "@/assets/service-cloud.jpg";
 import svcStorage from "@/assets/service-storage.jpg";
 import svcManaged from "@/assets/service-managed.jpg";
+import whySingleWindow from "@/assets/why-single-window.jpg";
+import whyReliability from "@/assets/why-reliability.jpg";
+import whyScale from "@/assets/why-scale.jpg";
+import whyEnterprise from "@/assets/why-enterprise.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -325,103 +329,47 @@ function ExpertiseGrid() {
         </Reveal>
 
         <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">
-          {/* Card 1 — Automation */}
-          <RevealItem>
-            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
-              <div className="relative h-44 flex items-center justify-center mb-8">
-                <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">One portal</div>
-                  <div className="mt-1 font-display text-2xl font-semibold">1 <span className="text-xs font-normal text-primary">window</span></div>
-                  <div className="mt-2 space-y-1">
-                    {[60, 40, 80].map((w, i) => (
-                      <div key={i} className="h-1 rounded-full bg-white/20"><div className="h-full rounded-full bg-primary" style={{ width: `${w}%` }} /></div>
-                    ))}
-                  </div>
+          {[
+            {
+              img: whySingleWindow,
+              title: "A single window interface",
+              desc: "One provider, one contract, one portal — helping you gain cost efficiencies and extended reach across the continent.",
+            },
+            {
+              img: whyReliability,
+              title: "Reliability and security",
+              desc: "Resilient, redundant and secure infrastructure — engineered to keep your services online and your data protected, 24/7.",
+            },
+            {
+              img: whyScale,
+              title: "Unrivalled scale and network reach",
+              desc: "Owned national fibre, towers and data centres — extending your reach into every region of Ghana and beyond.",
+            },
+            {
+              img: whyEnterprise,
+              title: "Enterprise-grade services",
+              desc: "Backed by strict SLAs, 24/7 NOC support and a dedicated account team — the standard of service enterprises and CSPs demand.",
+            },
+          ].map((c) => (
+            <RevealItem key={c.title}>
+              <div className="group rounded-3xl bg-white border border-border p-5 lg:p-6 h-full hover:shadow-elevated transition-shadow">
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
+                  <img
+                    src={c.img}
+                    alt={c.title}
+                    loading="lazy"
+                    width={896}
+                    height={672}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
-                <div className="absolute right-6 bottom-0 w-44 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Continental reach</div>
-                  <div className="mt-1 font-display text-xl font-semibold text-foreground">Pan-African <span className="text-[10px] font-normal text-muted-foreground">coverage</span></div>
-                  <div className="mt-2 grid grid-cols-2 gap-1">
-                    {Array.from({ length: 6 }).map((_, i) => (
-                      <div key={i} className="h-1.5 rounded-full bg-muted" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">A single window interface</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                One provider, one contract, one portal — helping you gain cost efficiencies and extended reach across the continent.
-              </p>
-            </div>
-          </RevealItem>
-
-          {/* Card 2 — Analytics */}
-          <RevealItem>
-            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
-              <div className="relative h-44 flex items-center justify-center mb-8">
-                <div className="absolute left-6 top-2 w-52 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">Uptime <span className="text-primary">●</span> guaranteed</div>
-                  <div className="mt-1 text-xs">Carrier-grade reliability &amp; secure-by-design network</div>
-                </div>
-                <div className="absolute right-6 bottom-0 w-48 rounded-xl bg-white border border-border p-3 shadow-elevated rotate-[5deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">99.99% availability</div>
-                  <svg viewBox="0 0 100 40" className="mt-2 w-full h-10">
-                    <polyline points="0,30 20,22 40,26 60,12 80,18 100,6" fill="none" stroke="hsl(75 100% 50%)" strokeWidth="2" />
-                    <polyline points="0,35 20,30 40,32 60,24 80,28 100,18" fill="none" stroke="hsl(206 70% 50%)" strokeWidth="2" />
-                  </svg>
+                <div className="px-2 pt-6 pb-2">
+                  <h3 className="font-display text-2xl font-semibold text-foreground">{c.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
                 </div>
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Reliability and security</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Resilient, redundant and secure infrastructure — engineered to keep your services online and your data protected, 24/7.
-              </p>
-            </div>
-          </RevealItem>
-
-          {/* Card 3 — Transformation */}
-          <RevealItem>
-            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
-              <div className="relative h-44 flex items-center justify-center mb-8">
-                <div className="absolute left-6 top-2 w-48 rounded-xl bg-secondary text-white p-3 shadow-elevated rotate-[-6deg]">
-                  <div className="text-[10px] uppercase tracking-wider text-white/60">National fibre</div>
-                  <div className="mt-1 font-display text-3xl font-semibold">1,000<span className="text-xs font-normal text-primary"> km</span></div>
-                  <div className="mt-2 flex gap-1 text-[9px] text-white/60">
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Metro</span>
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Long-haul</span>
-                    <span className="px-1.5 py-0.5 rounded bg-white/10">Subsea</span>
-                  </div>
-                </div>
-              </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Unrivalled scale and network reach</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Owned national fibre, towers and data centres — extending your reach into every region of Ghana and beyond.
-              </p>
-            </div>
-          </RevealItem>
-
-          {/* Card 4 — Enterprise-grade services */}
-          <RevealItem>
-            <div className="rounded-3xl bg-white border border-border p-7 lg:p-10 h-full">
-              <div className="relative h-44 flex items-center justify-center mb-8">
-                <div className="absolute inset-x-0 top-6 mx-auto w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-primary" />
-                </div>
-                {[-1, 1].map((side) => (
-                  <div key={side} className="absolute top-12 w-28 rounded-lg bg-white border border-border p-2 shadow-card" style={{ [side < 0 ? "left" : "right"]: "1.5rem" }}>
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-4 h-4 rounded-full bg-primary/30" />
-                      <span className="text-[9px] text-muted-foreground">SLA #{side < 0 ? "01" : "02"}</span>
-                    </div>
-                    <div className="mt-1 h-1 w-2/3 rounded bg-muted" />
-                  </div>
-                ))}
-              </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">Enterprise-grade services</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Backed by strict SLAs, 24/7 NOC support and a dedicated account team — the standard of service enterprises and CSPs demand.
-              </p>
-            </div>
-          </RevealItem>
+            </RevealItem>
+          ))}
         </RevealGroup>
       </div>
     </section>
