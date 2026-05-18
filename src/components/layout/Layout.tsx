@@ -5,7 +5,7 @@ import PageTransition from "@/components/ui-system/PageTransition";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
         <PageTransition>{children}</PageTransition>

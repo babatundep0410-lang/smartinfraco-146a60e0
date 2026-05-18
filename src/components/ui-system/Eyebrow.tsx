@@ -11,7 +11,7 @@ export default function Eyebrow({
   tone?: "accent" | "primary" | "muted";
 }) {
   const color =
-    tone === "primary" ? "text-primary" : tone === "muted" ? "text-muted-foreground" : "text-secondary";
+    tone === "primary" ? "text-primary" : tone === "muted" ? "text-muted-foreground" : "text-primary";
   return (
     <span
       className={cn(
