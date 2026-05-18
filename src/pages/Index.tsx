@@ -17,6 +17,7 @@ import SectionDivider from "@/components/ui-system/SectionDivider";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
 import appMockup from "@/assets/app-mockup.png";
 import heroDatacenter from "@/assets/hero-datacenter.jpg";
+import servicesBg from "@/assets/services-bg.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
