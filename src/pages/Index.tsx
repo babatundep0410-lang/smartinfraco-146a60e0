@@ -17,18 +17,24 @@ import SectionDivider from "@/components/ui-system/SectionDivider";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
 import appMockup from "@/assets/app-mockup.png";
 import heroDatacenter from "@/assets/hero-datacenter.jpg";
+import svcNetwork from "@/assets/service-network.jpg";
+import svcInternet from "@/assets/service-internet.jpg";
+import svcDatacenter from "@/assets/service-datacenter.jpg";
+import svcCloud from "@/assets/service-cloud.jpg";
+import svcStorage from "@/assets/service-storage.jpg";
+import svcManaged from "@/assets/service-managed.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /* ---------------- Data ---------------- */
 
 const services = [
-  { icon: Network,      title: "Network Solutions",        description: "Highly reliable, always-available network for critical applications and end-users.", href: "/connectivity", featured: true },
-  { icon: Wifi,         title: "Dedicated Internet Access", description: "Carrier-grade DIA with bandwidths up to 100 Gbps.", href: "/connectivity" },
-  { icon: Server,       title: "Data Centre Services",      description: "Tier III Accra & Tier II Kumasi — Ghana's most modern facilities.", href: "/data-centres" },
-  { icon: Cloud,        title: "Cloud Services",            description: "Hybrid cloud, VPS and managed compute with sovereignty by design.", href: "/cloud-services" },
-  { icon: HardDrive,    title: "Storage & Backup",          description: "STaaS and BaaS for resilience, compliance and local data sovereignty.", href: "/cloud-services" },
-  { icon: MonitorCheck, title: "Managed IT Services",       description: "End-to-end infrastructure management with 24/7 NOC support.", href: "/cloud-services" },
+  { icon: Network,      title: "Network Solutions",        description: "Highly reliable, always-available network for critical applications and end-users.", href: "/connectivity", image: svcNetwork, featured: true },
+  { icon: Wifi,         title: "Dedicated Internet Access", description: "Carrier-grade DIA with bandwidths up to 100 Gbps.", href: "/connectivity", image: svcInternet },
+  { icon: Server,       title: "Data Centre Services",      description: "Tier III Accra & Tier II Kumasi — Ghana's most modern facilities.", href: "/data-centres", image: svcDatacenter },
+  { icon: Cloud,        title: "Cloud Services",            description: "Hybrid cloud, VPS and managed compute with sovereignty by design.", href: "/cloud-services", image: svcCloud },
+  { icon: HardDrive,    title: "Storage & Backup",          description: "STaaS and BaaS for resilience, compliance and local data sovereignty.", href: "/cloud-services", image: svcStorage },
+  { icon: MonitorCheck, title: "Managed IT Services",       description: "End-to-end infrastructure management with 24/7 NOC support.", href: "/cloud-services", image: svcManaged },
 ];
 
 const stats = [
@@ -234,8 +240,14 @@ function ServicesBento() {
                   hover:border-primary/40 hover:-translate-y-1 hover:shadow-[var(--glow-primary)]
                   ${s.featured ? "p-8 lg:p-10 min-h-[320px]" : "p-6 lg:p-7 min-h-[200px]"}`}
               >
-                <div className="absolute inset-0 bg-gradient-mesh opacity-60 group-hover:opacity-90 transition-opacity duration-700" />
-                <GridBackdrop variant="lines" className="opacity-25 group-hover:opacity-40 transition-opacity duration-700" />
+                <img
+                  src={s.image}
+                  alt=""
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700 ease-out-expo"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/85 to-card/40 group-hover:from-card/95 group-hover:via-card/70 transition-colors duration-700" />
+                <GridBackdrop variant="lines" className="opacity-20 group-hover:opacity-35 transition-opacity duration-700" />
                 <div className="relative flex flex-col h-full">
                   <div className="flex items-start justify-between">
                     <div className="w-11 h-11 glass flex items-center justify-center">
