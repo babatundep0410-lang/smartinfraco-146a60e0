@@ -107,16 +107,21 @@ function Hero() {
 /* ============================================================
    LOGO STRIP
    ============================================================ */
+import customer1Logo from "@/assets/customers/customer1.png";
+import mtnLogo from "@/assets/customers/mtn.svg";
+import orangeLogo from "@/assets/customers/orange.png";
+import telecelLogo from "@/assets/customers/telecel.png";
+import afriwaveLogo from "@/assets/customers/afriwave.png";
+import ngicLogo from "@/assets/customers/ngic.svg";
+
 function LogoStrip() {
   const customers = [
-    { name: "MTN", style: "font-black tracking-tight text-2xl" },
-    { name: "Vodafone", style: "font-bold italic text-xl" },
-    { name: "AirtelTigo", style: "font-semibold tracking-wide text-xl" },
-    { name: "GCB Bank", style: "font-serif font-bold text-xl" },
-    { name: "Ecobank", style: "font-bold tracking-tight text-xl" },
-    { name: "ECG", style: "font-black tracking-[0.2em] text-xl" },
-    { name: "GRIDCo", style: "font-bold text-xl" },
-    { name: "Ghana Gov", style: "font-serif italic text-xl" },
+    { name: "Customer", src: customer1Logo },
+    { name: "MTN", src: mtnLogo },
+    { name: "Orange", src: orangeLogo },
+    { name: "Telecel", src: telecelLogo },
+    { name: "Afriwave", src: afriwaveLogo },
+    { name: "NGIC", src: ngicLogo },
   ];
   return (
     <section className="bg-white py-12 lg:py-16 border-y border-border">
@@ -124,20 +129,22 @@ function LogoStrip() {
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70 mb-8">
           Trusted by Ghana's leading enterprises & institutions
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 lg:gap-x-16">
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-16">
           {customers.map((c) => (
-            <div
+            <img
               key={c.name}
-              className={`text-foreground/40 hover:text-foreground transition-colors duration-300 ${c.style}`}
-            >
-              {c.name}
-            </div>
+              src={c.src}
+              alt={`${c.name} logo`}
+              className="h-10 lg:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+              loading="lazy"
+            />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 
 /* ============================================================
