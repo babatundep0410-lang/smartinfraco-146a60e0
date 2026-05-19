@@ -65,7 +65,7 @@ function Hero() {
       />
       <motion.div
         style={{ opacity: overlayOpacity }}
-        className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/70"
+        className="absolute inset-0 bg-gradient-to-b from-background/75 via-background/65 to-background/90"
       />
 
 
