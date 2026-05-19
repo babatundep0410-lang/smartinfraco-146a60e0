@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
   Network, Server, Cloud, Shield, Globe, Zap, Activity,
   Building2, Landmark, Wifi, HardDrive, MonitorCheck, Smartphone,
@@ -43,10 +44,30 @@ function Hero() {
     { img: svcNetwork,    label: "Metro Rings" },
   ];
 
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
+
   return (
-    <section className="relative overflow-hidden h-screen min-h-[640px] flex items-center justify-center pt-20">
-      <img src={heroSky} alt="" width={1920} height={1088} className="absolute inset-0 w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/70" />
+    <section ref={heroRef} className="relative overflow-hidden h-screen min-h-[640px] flex items-center justify-center pt-20">
+      <motion.img
+        src={heroSky}
+        alt=""
+        width={1920}
+        height={1088}
+        style={{ y: bgY, scale: bgScale }}
+        className="absolute inset-0 w-full h-full object-cover will-change-transform"
+      />
+      <motion.div
+        style={{ opacity: overlayOpacity }}
+        className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/70"
+      />
+
 
       <div className="relative container-wide">
         <div className="text-center max-w-5xl mx-auto">
