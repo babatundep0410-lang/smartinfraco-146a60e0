@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
   Network, Server, Cloud, Shield, Globe, Zap, Activity,
   Building2, Landmark, Wifi, HardDrive, MonitorCheck, Smartphone,
