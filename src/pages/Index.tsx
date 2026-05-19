@@ -124,18 +124,20 @@ function LogoStrip() {
     { name: "NGIC", src: ngicLogo },
   ];
   return (
-    <section className="bg-white py-12 lg:py-16 border-y border-border">
+    <section className="bg-white py-12 lg:py-16 border-y border-border overflow-hidden">
       <div className="container-wide">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70 mb-8">
           Trusted by Ghana's leading enterprises & institutions
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-16">
-          {customers.map((c) => (
+      </div>
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex w-max animate-marquee gap-x-16 lg:gap-x-24">
+          {[...customers, ...customers].map((c, i) => (
             <img
-              key={c.name}
+              key={`${c.name}-${i}`}
               src={c.src}
               alt={`${c.name} logo`}
-              className="h-10 lg:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+              className="h-10 lg:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0"
               loading="lazy"
             />
           ))}
@@ -144,6 +146,7 @@ function LogoStrip() {
     </section>
   );
 }
+
 
 
 
