@@ -108,22 +108,37 @@ function Hero() {
    LOGO STRIP
    ============================================================ */
 function LogoStrip() {
-  const sectors = ["Government", "Banking", "Telecoms", "Energy", "Healthcare", "Education", "Logistics", "Mining"];
+  const customers = [
+    { name: "MTN", style: "font-black tracking-tight text-2xl" },
+    { name: "Vodafone", style: "font-bold italic text-xl" },
+    { name: "AirtelTigo", style: "font-semibold tracking-wide text-xl" },
+    { name: "GCB Bank", style: "font-serif font-bold text-xl" },
+    { name: "Ecobank", style: "font-bold tracking-tight text-xl" },
+    { name: "ECG", style: "font-black tracking-[0.2em] text-xl" },
+    { name: "GRIDCo", style: "font-bold text-xl" },
+    { name: "Ghana Gov", style: "font-serif italic text-xl" },
+  ];
   return (
-    <section className="bg-white py-10 lg:py-12 border-y border-border">
-      <div className="container-wide flex flex-wrap items-center justify-center gap-x-10 gap-y-4 lg:gap-x-16">
-        {sectors.map((s) => (
-          <div key={s} className="flex items-center gap-2 text-muted-foreground/70">
-            <span className="w-5 h-5 rounded-full border border-muted-foreground/30 flex items-center justify-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50" />
-            </span>
-            <span className="text-sm font-medium">{s}</span>
-          </div>
-        ))}
+    <section className="bg-white py-12 lg:py-16 border-y border-border">
+      <div className="container-wide">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70 mb-8">
+          Trusted by Ghana's leading enterprises & institutions
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 lg:gap-x-16">
+          {customers.map((c) => (
+            <div
+              key={c.name}
+              className={`text-foreground/40 hover:text-foreground transition-colors duration-300 ${c.style}`}
+            >
+              {c.name}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* ============================================================
    ABOUT BENTO
