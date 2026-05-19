@@ -192,9 +192,8 @@ export default function AboutPage() {
         eyebrow="Partner with us"
         title={<>Let's build the next chapter of <span className="text-gradient-aurora">Ghana's digital story</span>.</>}
         primaryLabel="Get in Touch"
-        secondaryLabel="Explore Industries"
-        secondaryTo="/industries"
       />
+
     </Layout>
   );
 }

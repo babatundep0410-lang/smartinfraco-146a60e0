@@ -23,7 +23,7 @@ const navLinks = [
   { label: "Home",       href: "/" },
   { label: "About",      href: "/about" },
   { label: "Solutions",  href: "#", children: solutions },
-  { label: "Industries", href: "/industries" },
+  
   { label: "Media",      href: "#", children: media },
   { label: "Contact",    href: "/contact" },
 ];

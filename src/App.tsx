@@ -8,7 +8,7 @@ import About from "./pages/About";
 import Connectivity from "./pages/Connectivity";
 import DataCentres from "./pages/DataCentres";
 import CloudServices from "./pages/CloudServices";
-import Industries from "./pages/Industries";
+
 import Cybersecurity from "./pages/Cybersecurity";
 import Contact from "./pages/Contact";
 import News from "./pages/News";
@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/connectivity" element={<Connectivity />} />
           <Route path="/data-centres" element={<DataCentres />} />
           <Route path="/cloud-services" element={<CloudServices />} />
-          <Route path="/industries" element={<Industries />} />
+          
           <Route path="/cybersecurity" element={<Cybersecurity />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/news" element={<News />} />
