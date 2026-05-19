@@ -77,20 +77,6 @@ function Hero() {
             <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            className="mt-12 text-center"
-          >
-            <p className="text-xs uppercase tracking-[0.22em] text-white/80">
-              300+ customers · 1,000 km of national fibre
-            </p>
-            <div className="mt-2 flex justify-center gap-1 text-amber-400">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-current" />
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
