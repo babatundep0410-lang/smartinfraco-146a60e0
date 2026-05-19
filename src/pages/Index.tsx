@@ -10,7 +10,7 @@ import Eyebrow from "@/components/ui-system/Eyebrow";
 import AnimatedCounter from "@/components/ui-system/AnimatedCounter";
 import MagneticButton from "@/components/ui-system/MagneticButton";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
-import heroSky from "@/assets/hero-sky.jpg";
+import heroSky from "@/assets/hero-datacenter.jpg";
 import ctaSky from "@/assets/cta-sky.jpg";
 import svcNetwork from "@/assets/service-network.jpg";
 import svcInternet from "@/assets/service-internet.jpg";
@@ -46,7 +46,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden h-screen min-h-[640px] flex items-center justify-center pt-20">
       <img src={heroSky} alt="" width={1920} height={1088} className="absolute inset-0 w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/70" />
 
       <div className="relative container-wide">
         <div className="text-center max-w-5xl mx-auto">
