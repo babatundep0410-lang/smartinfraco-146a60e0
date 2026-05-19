@@ -44,11 +44,11 @@ function Hero() {
   ];
 
   return (
-    <section className="relative overflow-hidden pt-28 lg:pt-32 min-h-[100vh]">
+    <section className="relative overflow-hidden h-screen min-h-[640px] flex items-center justify-center pt-20">
       <img src={heroSky} alt="" width={1920} height={1088} className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
 
-      <div className="relative container-wide pt-16 lg:pt-24 pb-32 lg:pb-40">
+      <div className="relative container-wide">
         <div className="text-center max-w-5xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
@@ -76,56 +76,22 @@ function Hero() {
             <MagneticButton to="/connectivity" variant="dark">View Solutions</MagneticButton>
             <MagneticButton to="/contact" variant="primary">Get Started</MagneticButton>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-xs uppercase tracking-[0.22em] text-white/80">
+              300+ customers · 1,000 km of national fibre
+            </p>
+            <div className="mt-2 flex justify-center gap-1 text-amber-400">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-current" />
+              ))}
+            </div>
+          </motion.div>
         </div>
-
-        {/* infinite scrolling card marquee with arched tilt */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease, delay: 0.5 }}
-          className="relative mt-20 lg:mt-28 h-[260px] lg:h-[300px] overflow-hidden"
-          style={{
-            maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-            WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-          }}
-        >
-          <div className="flex gap-3 lg:gap-4 animate-marquee w-max items-end pt-6">
-            {[...fanCards, ...fanCards, ...fanCards].map((c, i) => {
-              const localIdx = i % fanCards.length;
-              const mid = (fanCards.length - 1) / 2;
-              const offset = localIdx - mid;
-              const rotate = offset * 6;
-              const translateY = Math.abs(offset) * 12;
-              return (
-                <div
-                  key={i}
-                  style={{ transform: `translateY(${translateY}px) rotate(${rotate}deg)`, transformOrigin: "bottom center" }}
-                  className="relative shrink-0 w-[110px] h-[150px] lg:w-[150px] lg:h-[210px] rounded-2xl overflow-hidden bg-white shadow-elevated border border-white/40 transition-transform duration-500 hover:-translate-y-3"
-                >
-                  <img src={c.img} alt={c.label} className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                  <span className="absolute bottom-2 left-2 right-2 text-[10px] lg:text-[11px] font-semibold text-white text-center leading-tight uppercase tracking-wider">
-                    {c.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 1.4 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-xs uppercase tracking-[0.22em] text-white/80">
-            300+ customers · 1,000 km of national fibre
-          </p>
-          <div className="mt-2 flex justify-center gap-1 text-amber-400">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-current" />
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
