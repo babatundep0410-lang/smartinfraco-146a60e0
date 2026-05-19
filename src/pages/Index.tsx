@@ -10,7 +10,7 @@ import Eyebrow from "@/components/ui-system/Eyebrow";
 import AnimatedCounter from "@/components/ui-system/AnimatedCounter";
 import MagneticButton from "@/components/ui-system/MagneticButton";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-system/RevealOnScroll";
-import heroSky from "@/assets/hero-sky.jpg";
+import heroSky from "@/assets/hero-datacenter.jpg";
 import ctaSky from "@/assets/cta-sky.jpg";
 import svcNetwork from "@/assets/service-network.jpg";
 import svcInternet from "@/assets/service-internet.jpg";
