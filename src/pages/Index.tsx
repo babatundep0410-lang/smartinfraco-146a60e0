@@ -56,7 +56,7 @@ function Hero() {
             className="font-display text-display-2xl text-white"
           >
             <span className="block font-semibold">Data centre, cloud,</span>
-            <span className="block font-light italic text-white/85">CONNECTIVITY</span>
+            <span className="block font-light italic text-white/85">CONNECTIVITY &<br />CYBERSECURITY</span>
           </motion.h1>
 
           <motion.p
