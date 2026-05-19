@@ -146,7 +146,7 @@ export default function Navbar() {
             to="/contact"
             className="group inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] bg-primary text-primary-foreground rounded-full hover:brightness-105 transition-all"
           >
-            Get in Touch
+            Get Started
             <span className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-secondary-foreground transition-transform duration-500 group-hover:rotate-45">
               <ArrowUpRight className="w-3.5 h-3.5" />
             </span>
