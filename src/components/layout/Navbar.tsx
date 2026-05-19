@@ -67,13 +67,10 @@ export default function Navbar() {
         style={{ scaleX: progress }}
       />
 
-      <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-6">
+      <div className="flex items-center justify-between h-16 lg:h-20 px-4 lg:px-6">
         {/* Logo lockup */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <img src={logo} alt="Smart Infraco" className="h-8 lg:h-9 w-auto" />
-          <span className="hidden sm:flex flex-col leading-none">
-            <span className={cn("text-[13px] font-semibold tracking-tight", scrolled ? "text-foreground" : "text-white")}>Smart Infraco</span>
-          </span>
+        <Link to="/" className="flex items-center group">
+          <img src={logo} alt="Smart Infraco" className="h-12 lg:h-14 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
