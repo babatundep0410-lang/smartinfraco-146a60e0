@@ -420,9 +420,6 @@ function IndustriesWeServe() {
           <p className="mt-5 text-muted-foreground">
             From government and telecoms to banking, energy and education — we deliver the connectivity and cloud foundations that critical industries rely on.
           </p>
-          <div className="mt-8 flex justify-center">
-            <MagneticButton to="/industries" variant="primary">Explore Industries</MagneticButton>
-          </div>
         </Reveal>
 
         <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -450,15 +447,6 @@ function IndustriesWeServe() {
                 >
                   {ind.blurb}
                 </p>
-                <Link
-                  to="/industries"
-                  className={`mt-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] ${
-                    ind.highlighted ? "text-primary-foreground" : "text-foreground"
-                  }`}
-                >
-                  Learn more
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
               </div>
             </RevealItem>
           ))}
