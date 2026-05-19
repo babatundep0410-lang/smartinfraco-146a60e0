@@ -69,8 +69,8 @@ export default function Navbar() {
 
       <div className="flex items-center justify-between h-16 lg:h-20 px-4 lg:px-6">
         {/* Logo lockup */}
-        <Link to="/" className="flex items-center group relative">
-          <img src={logo} alt="Smart Infraco" className="h-36 lg:h-44 w-auto absolute left-0 top-1/2 -translate-y-1/2" />
+        <Link to="/" className="flex items-center group shrink-0" style={{ width: 180 }}>
+          <img src={logo} alt="Smart Infraco" className="h-36 lg:h-44 w-auto -my-12" />
         </Link>
 
         {/* Desktop Nav */}
